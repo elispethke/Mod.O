@@ -3,12 +3,12 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { cn } from '@/utils/cn'
 import { t } from '@/lib/i18n'
 import { SITE } from '@/constants/site'
+import editorial01 from '@/assets/editorial/editorial-01.webp'
 import FloatingInput    from '@/shared/ui/FloatingInput'
 import FloatingTextarea from '@/shared/ui/FloatingTextarea'
 import FloatingSelect   from '@/shared/ui/FloatingSelect'
 import { useContactForm, SERVICE_OPTIONS } from './useContactForm'
-
-const EASE = [0.16, 1, 0.3, 1] as const
+import { EASE } from '@/config/motion'
 
 const stagger = (i: number) => ({
   initial:    { opacity: 0, y: 16, filter: 'blur(6px)' },
@@ -42,13 +42,12 @@ export default function Contact() {
       {/* ── Cenário editorial de fundo ─────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <motion.img
-          src="/images/editorial-01.jpg"
+          src={editorial01}
           alt=""
           initial={{ opacity: 0, scale: 1.15 }}
           animate={isInView ? { opacity: 1, scale: 1.1 } : {}}
           transition={{ duration: 2.2, ease: EASE }}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: 'blur(60px) saturate(1.08)', objectPosition: '70% 20%' }}
+          className="absolute inset-0 w-full h-full object-cover object-[70%_20%] blur-[60px] saturate-[1.08]"
         />
 
         {/* Gradiente de legibilidade — a esquerda sólida, a direita revela o cenário */}
@@ -64,8 +63,7 @@ export default function Contact() {
         {/* Régua editorial + tagline vertical — borda direita */}
         <div className="hidden lg:block absolute top-0 bottom-0 right-14 w-px bg-support/[0.08]" />
         <span
-          className="hidden lg:block absolute bottom-14 right-8 tracking-editorial text-support/30 font-body whitespace-nowrap"
-          style={{ writingMode: 'vertical-rl' }}
+          className="hidden lg:block absolute bottom-14 right-8 tracking-editorial text-support/30 font-body whitespace-nowrap [writing-mode:vertical-rl]"
         >
           {SITE.tagline}
         </span>
@@ -88,8 +86,7 @@ export default function Contact() {
 
             <h2
               id="contact-heading"
-              className="font-display font-bold text-primary leading-[0.92]"
-              style={{ fontSize: 'clamp(2.75rem, 7.2vw, 8rem)', letterSpacing: '-0.03em' }}
+              className="font-display font-bold text-primary leading-[0.92] text-[clamp(2.75rem,7.2vw,8rem)] tracking-[-0.03em]"
             >
               {t.contact.headline.split('\n').map((line, i) => (
                 <span key={i} className="block overflow-hidden">
@@ -113,8 +110,7 @@ export default function Contact() {
             />
 
             <motion.p
-              className="font-body text-support/55 leading-relaxed mt-10 max-w-sm"
-              style={{ fontSize: 'clamp(0.9375rem, 1.1vw, 1.0625rem)' }}
+              className="font-body text-support/60 leading-relaxed mt-10 max-w-sm text-[clamp(0.9375rem,1.1vw,1.0625rem)]"
               initial={{ opacity: 0, y: 12 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.5, ease: EASE }}
@@ -131,7 +127,7 @@ export default function Contact() {
             >
               {INFO_ITEMS.map((item, i) => (
                 <div key={item.label} className={cn('flex flex-col gap-1.5', i > 0 && 'lg:pt-7')}>
-                  <span className="tracking-editorial text-primary/70 font-body">{item.label}</span>
+                  <span className="tracking-editorial text-primary/85 font-body">{item.label}</span>
                   <span className="font-body text-support/65 text-sm leading-relaxed">{item.value}</span>
                 </div>
               ))}
@@ -144,11 +140,11 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.75 }}
             >
               <a href={`mailto:${SITE.email}`}
-                className="font-body text-sm text-support/50 hover:text-primary transition-colors duration-300">
+                className="font-body text-sm text-support/60 hover:text-primary transition-colors duration-base">
                 {SITE.email}
               </a>
               <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
-                className="font-body text-sm text-support/50 hover:text-primary transition-colors duration-300">
+                className="font-body text-sm text-support/60 hover:text-primary transition-colors duration-base">
                 WhatsApp
               </a>
             </motion.div>
@@ -164,7 +160,7 @@ export default function Contact() {
             </div>
 
             <motion.div
-              className="relative isolate rounded-md border border-white/30 bg-white/[0.14] backdrop-blur-2xl shadow-2xl overflow-hidden"
+              className="relative isolate rounded-md border border-white/40 bg-white/60 backdrop-blur-2xl shadow-2xl overflow-hidden"
               initial={{ opacity: 0, y: 28, scale: 0.985 }}
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
@@ -206,7 +202,8 @@ export default function Contact() {
                         <svg width="18" height="13" viewBox="0 0 18 13" fill="none">
                           <motion.path
                             d="M1 6.5l5 5L17 1"
-                            stroke="#BA1110" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                            className="stroke-primary"
+                            strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
                             initial={{ pathLength: 0 }}
                             animate={{ pathLength: 1 }}
                             transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
@@ -215,11 +212,10 @@ export default function Contact() {
                       </motion.div>
 
                       <div className="flex flex-col gap-3">
-                        <p className="font-display font-bold text-primary"
-                          style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.1 }}>
+                        <p className="font-display font-bold text-primary text-[clamp(1.75rem,4vw,3rem)] leading-[1.1]">
                           Mensagem recebida.
                         </p>
-                        <p className="font-body text-support/50 text-sm leading-relaxed max-w-xs">
+                        <p className="font-body text-support/60 text-sm leading-relaxed max-w-xs">
                           Entraremos em contato em breve. Obrigada pelo interesse na mod.o.
                         </p>
                       </div>
@@ -260,7 +256,7 @@ export default function Contact() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 divide-y divide-support/[0.08] sm:divide-y-0 sm:divide-x">
                           <motion.div {...stagger(2)} animate={isInView ? stagger(2).animate : stagger(2).initial}>
                             <FloatingInput
-                              label="Telefone"
+                              label={t.contact.fields.phone}
                               type="tel"
                               autoComplete="tel"
                               error={errors.phone?.message}
@@ -269,7 +265,7 @@ export default function Contact() {
                           </motion.div>
                           <motion.div {...stagger(3)} animate={isInView ? stagger(3).animate : stagger(3).initial}>
                             <FloatingInput
-                              label="Empresa"
+                              label={t.contact.fields.company}
                               optional
                               type="text"
                               autoComplete="organization"
@@ -281,7 +277,7 @@ export default function Contact() {
 
                         <motion.div {...stagger(4)} animate={isInView ? stagger(4).animate : stagger(4).initial}>
                           <FloatingSelect
-                            label="Serviço desejado"
+                            label={t.contact.fields.service}
                             options={SERVICE_OPTIONS}
                             value={serviceValue}
                             error={errors.service?.message}
@@ -326,14 +322,14 @@ export default function Contact() {
                             'py-5 px-8',
                             'font-body text-xs font-semibold tracking-[0.22em] uppercase',
                             'bg-primary text-white rounded-[3px]',
-                            'transition-[background-color,box-shadow] duration-500 ease-out',
+                            'transition-[background-color,box-shadow] duration-slow ease-out',
                             'hover:bg-support hover:shadow-red-lg',
                             'disabled:opacity-40 disabled:cursor-not-allowed',
                             'focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2',
                           )}
                         >
                           <span
-                            className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-[100%]"
+                            className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-slower group-hover:translate-x-[100%]"
                             aria-hidden="true"
                           />
                           <span className="relative flex items-center justify-center gap-3">
@@ -348,7 +344,7 @@ export default function Contact() {
                             ) : (
                               <>
                                 {t.contact.submit}
-                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
+                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" className="transition-transform duration-base group-hover:translate-x-1" aria-hidden="true">
                                   <path d="M1 5h12M8 1l5 4-5 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                               </>

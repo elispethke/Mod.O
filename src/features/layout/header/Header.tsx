@@ -11,8 +11,8 @@ export default function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-[40]',
-        'transition-all duration-500 ease-elegant',
+        'fixed top-0 left-0 right-0 z-header',
+        'transition-all duration-slow ease-elegant',
         isHidden && '-translate-y-full',
         isScrolled
           ? 'bg-base/95 backdrop-blur-md shadow-sm border-b border-support/[0.06]'
@@ -23,7 +23,7 @@ export default function Header() {
         <Link
           to={ROUTES.home}
           aria-label="mod.o Fashion Studio — Página inicial"
-          className="flex-shrink-0 transition-opacity duration-300 hover:opacity-70"
+          className="flex-shrink-0 transition-opacity duration-base hover:opacity-70"
         >
           <Logo
             variant="complementar"

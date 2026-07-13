@@ -2,6 +2,8 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { t } from '@/lib/i18n'
 import ImageReveal from '@/shared/components/ImageReveal'
+import founders from '@/assets/about/founders.webp'
+import { EASE } from '@/config/motion'
 
 const visionPillars = [
   {
@@ -44,7 +46,7 @@ export default function About() {
               className="flex items-center gap-4 mb-10"
               initial={{ opacity: 0, x: -16 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, ease: EASE }}
             >
               <span className="tracking-editorial text-primary font-body">{t.about.eyebrow}</span>
             </motion.div>
@@ -52,11 +54,10 @@ export default function About() {
             {/* Headline — parte 1: "Ser o fashion studio de referência para marcas que" */}
             <motion.h2
               id="about-heading"
-              className="font-display font-medium text-support leading-[1.08]"
-              style={{ fontSize: 'clamp(2rem, 4.2vw, 4.5rem)', letterSpacing: '-0.02em' }}
+              className="font-display font-medium text-support leading-[1.08] text-[clamp(2rem,4.2vw,4.5rem)] tracking-[-0.02em]"
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             >
               Ser o fashion studio de{' '}
               <strong className="font-bold text-primary">referência</strong>{' '}
@@ -68,10 +69,10 @@ export default function About() {
               className="my-6 lg:my-8 w-full"
               initial={{ opacity: 0, scale: 0.97 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.9, delay: 0.25, ease: EASE }}
             >
               <ImageReveal
-                src="/images/founders.png"
+                src={founders}
                 alt="As fundadoras da mod.o Fashion Studio"
                 className="w-full aspect-[16/9] lg:aspect-[3/2]"
                 delay={0.3}
@@ -81,11 +82,10 @@ export default function About() {
 
             {/* Headline — parte 2: continua abaixo da foto */}
             <motion.p
-              className="font-display font-medium text-support leading-[1.08]"
-              style={{ fontSize: 'clamp(2rem, 4.2vw, 4.5rem)', letterSpacing: '-0.02em' }}
+              className="font-display font-medium text-support leading-[1.08] text-[clamp(2rem,4.2vw,4.5rem)] tracking-[-0.02em]"
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
             >
               buscam inovação, qualidade e repertório global.
             </motion.p>
@@ -100,19 +100,19 @@ export default function About() {
                 className="flex flex-col gap-0.5"
                 initial={{ opacity: 0, y: 16 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease: EASE }}
               >
                 {pillar.title ? (
                   <>
                     <span className="font-body font-semibold text-primary text-sm leading-snug">
                       {pillar.title}
                     </span>
-                    <span className="font-body text-support/55 text-sm italic leading-relaxed">
+                    <span className="font-body text-support/60 text-sm italic leading-relaxed">
                       {pillar.description}
                     </span>
                   </>
                 ) : (
-                  <span className="font-body text-support/40 text-sm leading-relaxed italic">
+                  <span className="font-body text-support/60 text-sm leading-relaxed italic">
                     {pillar.description}
                   </span>
                 )}

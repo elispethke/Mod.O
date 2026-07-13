@@ -108,8 +108,10 @@ export const tokens = {
 
   motion: {
     instant: '0ms',
+    snappy:  '100ms',
     fast:    '150ms',
     base:    '300ms',
+    medium:  '400ms',
     slow:    '500ms',
     slower:  '700ms',
     slowest: '900ms',
@@ -123,13 +125,17 @@ export const tokens = {
   },
 
   zIndex: {
-    hide:    '-1',
-    base:    '0',
-    raised:  '10',
-    overlay: '20',
-    modal:   '30',
-    header:  '40',
-    toast:   '50',
+    hide:            '-1',
+    base:            '0',
+    raised:          '10',
+    overlay:         '20',
+    modal:           '30',
+    drawer:          '35', // menu mobile em tela cheia — abaixo do header, para o botão de fechar continuar acessível
+    header:          '40', // header fixo + botão flutuante do WhatsApp
+    banner:          '45', // banner de consentimento de cookies
+    indicator:       '50', // barra de progresso de leitura
+    'dialog-overlay': '60', // overlay do modal de preferências de cookies (Radix Dialog)
+    'dialog-content': '61',
   },
 
   container: {

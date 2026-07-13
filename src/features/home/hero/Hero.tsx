@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { t } from '@/lib/i18n'
 import AnimatedText from '@/shared/components/AnimatedText'
 import ImageReveal from '@/shared/components/ImageReveal'
+import editorial01 from '@/assets/editorial/editorial-01.webp'
+import { EASE } from '@/config/motion'
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null)
@@ -43,7 +45,7 @@ export default function Hero() {
               className="flex items-center gap-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
             >
               <span className="rule-brand" aria-hidden="true" />
               <span className="tracking-editorial text-primary font-body">{t.hero.eyebrow}</span>
@@ -53,18 +55,16 @@ export default function Hero() {
               as="h1"
               splitBy="lines"
               delay={0.2}
-              className="font-display font-bold text-primary"
-              style={{ fontSize: 'clamp(2.75rem, 6.5vw, 6.5rem)', lineHeight: 1.0, letterSpacing: '-0.025em' } as React.CSSProperties}
+              className="font-display font-bold text-primary text-[clamp(2.75rem,6.5vw,6.5rem)] leading-none tracking-[-0.025em]"
             >
               {t.hero.headline}
             </AnimatedText>
 
             <motion.p
-              className="font-body text-support/60 max-w-md leading-relaxed"
-              style={{ fontSize: 'clamp(1rem, 1.1vw, 1.125rem)' }}
+              className="font-body text-support/60 max-w-md leading-relaxed text-[clamp(1rem,1.1vw,1.125rem)]"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
             >
               {t.hero.body}
             </motion.p>
@@ -72,7 +72,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.7, delay: 0.8, ease: EASE }}
             >
               <a
                 href="#sobre"
@@ -80,11 +80,11 @@ export default function Hero() {
                   e.preventDefault()
                   document.querySelector('#sobre')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="group inline-flex items-center gap-4 font-body text-xs font-semibold tracking-[0.14em] uppercase text-support transition-all duration-300 hover:text-primary"
+                className="group inline-flex items-center gap-4 font-body text-xs font-semibold tracking-[0.14em] uppercase text-support transition-all duration-base hover:text-primary"
               >
                 {t.hero.cta}
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-support/20 transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:translate-y-0.5">
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-support/20 transition-all duration-base group-hover:border-primary group-hover:bg-primary group-hover:text-white" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-base group-hover:translate-y-0.5">
                     <path d="M7 1v12M1 7l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
@@ -97,7 +97,7 @@ export default function Hero() {
 
             <div className="col-span-1 row-span-2">
               <ImageReveal
-                src="/images/editorial-01.jpg"
+                src={editorial01}
                 alt="Desfile editorial — mod.o Fashion Studio"
                 className="w-full h-full min-h-[60vh] lg:min-h-[70vh]"
                 delay={0.4}
@@ -109,18 +109,17 @@ export default function Hero() {
               className="col-span-1 bg-primary flex items-center justify-center overflow-hidden relative min-h-[28vh] lg:min-h-[32vh]"
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.9, delay: 0.5, ease: EASE }}
             >
               <div
                 aria-hidden="true"
-                className="flex flex-col items-center text-white font-display font-bold select-none"
-                style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 0.9 }}
+                className="flex flex-col items-center text-white font-display font-bold select-none text-[clamp(2rem,5vw,4rem)] leading-[0.9]"
               >
                 <span>mo</span>
                 <span>d.o</span>
               </div>
               <div className="absolute inset-0 flex items-end justify-end p-4 pointer-events-none" aria-hidden="true">
-                <span className="font-display font-bold text-white/[0.07]" style={{ fontSize: '8rem', lineHeight: 1 }}>o</span>
+                <span className="font-display font-bold text-white/[0.07] text-[8rem] leading-none">o</span>
               </div>
             </motion.div>
 
@@ -128,11 +127,11 @@ export default function Hero() {
               className="col-span-1 bg-base border border-support/[0.07] flex items-end justify-start p-5 min-h-[28vh] lg:min-h-[32vh]"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.7, delay: 0.7, ease: EASE }}
             >
               <div className="flex flex-col gap-2">
                 <span className="rule-brand" aria-hidden="true" />
-                <p className="font-body text-support/50 text-xs leading-relaxed max-w-[14ch]">
+                <p className="font-body text-support/60 text-xs leading-relaxed max-w-[14ch]">
                   Duas amigas.<br />Dois países.<br />Um estúdio e uma <em>visão</em>.
                 </p>
               </div>
@@ -156,7 +155,7 @@ export default function Hero() {
               transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
             />
           </div>
-          <span className="tracking-editorial text-support/35 font-body" style={{ fontSize: '0.6rem' }}>scroll</span>
+          <span className="tracking-editorial text-support/35 font-body text-[0.6rem]">scroll</span>
         </motion.div>
 
       </motion.div>

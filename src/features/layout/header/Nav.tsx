@@ -34,10 +34,10 @@ export default function Nav({ isScrolled }: NavProps) {
             onClick={() => handleNavClick(NAV_HREFS[key])}
             className={cn(
               'relative font-body text-sm font-medium text-support',
-              'transition-colors duration-300 hover:text-primary',
+              'transition-colors duration-base hover:text-primary',
               'after:absolute after:bottom-0 after:left-0 after:w-full after:h-px',
               'after:bg-primary after:scale-x-0 after:origin-right',
-              'after:transition-transform after:duration-300 after:ease-reveal',
+              'after:transition-transform after:duration-base after:ease-reveal',
               'hover:after:scale-x-100 hover:after:origin-left',
               isScrolled && 'text-support'
             )}
@@ -52,7 +52,7 @@ export default function Nav({ isScrolled }: NavProps) {
             ml-2 px-5 py-2.5
             font-body text-xs font-semibold tracking-[0.12em] uppercase
             bg-primary text-white rounded-sm
-            transition-all duration-300 ease-reveal
+            transition-all duration-base ease-reveal
             hover:bg-primary-dim hover:shadow-red
             focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2
           "
@@ -68,9 +68,9 @@ export default function Nav({ isScrolled }: NavProps) {
         onClick={() => setMenuOpen((v) => !v)}
         className="flex md:hidden flex-col gap-[5px] w-6 justify-center py-1"
       >
-        <span className={cn('w-full h-px bg-support transition-all duration-300 origin-center', menuOpen && 'rotate-45 translate-y-[3px]')} />
-        <span className={cn('w-4 h-px bg-support transition-all duration-300', menuOpen && 'opacity-0 translate-x-2')} />
-        <span className={cn('w-full h-px bg-support transition-all duration-300 origin-center', menuOpen && '-rotate-45 -translate-y-[9px]')} />
+        <span className={cn('w-full h-px bg-support transition-all duration-base origin-center', menuOpen && 'rotate-45 translate-y-[3px]')} />
+        <span className={cn('w-4 h-px bg-support transition-all duration-base', menuOpen && 'opacity-0 translate-x-2')} />
+        <span className={cn('w-full h-px bg-support transition-all duration-base origin-center', menuOpen && '-rotate-45 -translate-y-[9px]')} />
       </button>
 
       {/* Mobile drawer */}
@@ -78,9 +78,11 @@ export default function Nav({ isScrolled }: NavProps) {
         role="dialog"
         aria-modal="true"
         aria-label="Menu de navegação"
+        aria-hidden={!menuOpen}
+        inert={!menuOpen ? true : undefined}
         className={cn(
-          'fixed inset-0 z-[35] flex flex-col md:hidden bg-base',
-          'transition-all duration-500 ease-reveal',
+          'fixed inset-0 z-drawer flex flex-col md:hidden bg-base',
+          'transition-all duration-slow ease-reveal',
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         )}
       >
@@ -88,11 +90,12 @@ export default function Nav({ isScrolled }: NavProps) {
           {NAV_KEYS.map((key, i) => (
             <button
               key={key}
+              tabIndex={menuOpen ? 0 : -1}
               onClick={() => handleNavClick(NAV_HREFS[key])}
               style={{ transitionDelay: menuOpen ? `${i * 60}ms` : '0ms' }}
               className={cn(
                 'text-left font-display font-bold text-5xl text-support',
-                'transition-all duration-500 ease-reveal',
+                'transition-all duration-slow ease-reveal',
                 'hover:text-primary hover:translate-x-2',
                 menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               )}
@@ -102,6 +105,7 @@ export default function Nav({ isScrolled }: NavProps) {
           ))}
 
           <button
+            tabIndex={menuOpen ? 0 : -1}
             onClick={() => handleNavClick('#contato')}
             className="mt-4 w-fit px-8 py-3 bg-primary text-white font-body font-semibold text-xs tracking-[0.12em] uppercase rounded-sm"
           >

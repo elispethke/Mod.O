@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
 import type { CookieCategory, CookieConsent } from './types'
 import { readStoredConsent, writeStoredConsent } from './storage'
 
@@ -25,24 +25,18 @@ interface CookieConsentContextValue {
 const CookieConsentContext = createContext<CookieConsentContextValue | null>(null)
 
 export function CookieConsentProvider({ children }: { children: ReactNode }) {
-  const [consent, setConsent]                 = useState<CookieConsent>(DEFAULT_CONSENT)
-  const [hasDecided, setHasDecided]           = useState(true)
-  const [isPreferencesOpen, setPreferencesOpen] = useState(false)
-
-  useEffect(() => {
+  // Inicializadores lazy: o localStorage é lido de forma síncrona na primeira renderização,
+  // então hasDecided já nasce com o valor real — sem depender de um efeito pós-montagem
+  // para corrigi-lo (o que antes deixava o banner "decidido" por um instante mesmo para
+  // visitantes que nunca deram consentimento).
+  const [consent, setConsent] = useState<CookieConsent>(() => {
     const stored = readStoredConsent()
-    if (stored) {
-      setConsent({
-        necessary:   true,
-        analytics:   stored.analytics,
-        marketing:   stored.marketing,
-        preferences: stored.preferences,
-      })
-      setHasDecided(true)
-    } else {
-      setHasDecided(false)
-    }
-  }, [])
+    return stored
+      ? { necessary: true, analytics: stored.analytics, marketing: stored.marketing, preferences: stored.preferences }
+      : DEFAULT_CONSENT
+  })
+  const [hasDecided, setHasDecided]             = useState(() => readStoredConsent() !== null)
+  const [isPreferencesOpen, setPreferencesOpen] = useState(false)
 
   const persist = (next: CookieConsent) => {
     writeStoredConsent(next)

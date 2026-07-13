@@ -7,8 +7,7 @@ import { ROUTES } from '@/constants/routes'
 import { useSectionNav } from '@/shared/hooks/useSectionNav'
 import { useCookieConsent } from '@/features/cookie-consent'
 import FooterLink from './FooterLink'
-
-const EASE = [0.16, 1, 0.3, 1] as const
+import { EASE } from '@/config/motion'
 
 const fadeUp = (delay: number) => ({
   initial:    { opacity: 0, y: 18 },
@@ -72,13 +71,12 @@ export default function Footer() {
             className="group flex items-start gap-5 text-left"
           >
             <h2
-              className="font-display font-bold text-white leading-[0.98] transition-colors duration-400 group-hover:text-base"
-              style={{ fontSize: 'clamp(2.25rem, 5vw, 4.5rem)', letterSpacing: '-0.02em' }}
+              className="font-display font-bold text-white leading-[0.98] transition-colors duration-medium group-hover:text-base text-[clamp(2.25rem,5vw,4.5rem)] tracking-[-0.02em]"
             >
               Vamos criar algo excepcional juntos.
             </h2>
-            <span className="mt-3 lg:mt-6 inline-flex items-center justify-center w-11 h-11 lg:w-14 lg:h-14 rounded-full border border-white shrink-0 transition-all duration-400 group-hover:bg-white group-hover:border-white">
-              <svg width="18" height="18" viewBox="0 0 14 14" fill="none" className="text-white transition-all duration-400 -rotate-45 group-hover:rotate-0 group-hover:text-primary" aria-hidden="true">
+            <span className="mt-3 lg:mt-6 inline-flex items-center justify-center w-11 h-11 lg:w-14 lg:h-14 rounded-full border border-white shrink-0 transition-all duration-medium group-hover:bg-white group-hover:border-white">
+              <svg width="18" height="18" viewBox="0 0 14 14" fill="none" className="text-white transition-all duration-medium -rotate-45 group-hover:rotate-0 group-hover:text-primary" aria-hidden="true">
                 <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
@@ -139,14 +137,14 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${item.label} da ${SITE.fullName}`}
-                    className="group inline-flex items-center gap-3 text-white transition-transform duration-300 hover:translate-x-1"
+                    className="group inline-flex items-center gap-3 text-white transition-transform duration-base hover:translate-x-1"
                   >
-                    <span className="flex items-center justify-center w-8 h-8 rounded-full border border-white shrink-0 transition-colors duration-300 group-hover:bg-white group-hover:text-primary">
+                    <span className="flex items-center justify-center w-8 h-8 rounded-full border border-white shrink-0 transition-colors duration-base group-hover:bg-white group-hover:text-primary">
                       {item.icon}
                     </span>
                     <span className="font-body text-sm font-medium relative">
                       {item.label}
-                      <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-white transition-transform duration-400 ease-out group-hover:scale-x-100" aria-hidden="true" />
+                      <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-white transition-transform duration-medium ease-out group-hover:scale-x-100" aria-hidden="true" />
                     </span>
                   </a>
                 </li>
@@ -170,7 +168,7 @@ export default function Footer() {
               href="https://www.elispethke.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-white transition-colors duration-300 hover:text-base underline decoration-white/40 underline-offset-4 hover:decoration-base"
+              className="font-medium text-white transition-colors duration-base hover:text-base underline decoration-white/40 underline-offset-4 hover:decoration-base"
             >
               Buildle
             </a>
@@ -179,20 +177,20 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
             <Link
               to={ROUTES.privacy}
-              className="font-body text-xs font-medium text-white transition-colors duration-300 hover:text-base underline decoration-white/40 underline-offset-4 hover:decoration-base"
+              className="font-body text-xs font-medium text-white transition-colors duration-base hover:text-base underline decoration-white/40 underline-offset-4 hover:decoration-base"
             >
               {t.footer.legal.privacy}
             </Link>
             <Link
               to={ROUTES.terms}
-              className="font-body text-xs font-medium text-white transition-colors duration-300 hover:text-base underline decoration-white/40 underline-offset-4 hover:decoration-base"
+              className="font-body text-xs font-medium text-white transition-colors duration-base hover:text-base underline decoration-white/40 underline-offset-4 hover:decoration-base"
             >
               {t.footer.legal.terms}
             </Link>
             <button
               type="button"
               onClick={openPreferences}
-              className="font-body text-xs font-medium text-white transition-colors duration-300 hover:text-base underline decoration-white/40 underline-offset-4 hover:decoration-base"
+              className="font-body text-xs font-medium text-white transition-colors duration-base hover:text-base underline decoration-white/40 underline-offset-4 hover:decoration-base"
             >
               {t.footer.legal.cookiePreferences}
             </button>

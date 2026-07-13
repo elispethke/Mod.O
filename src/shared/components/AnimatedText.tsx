@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { cn } from '@/utils/cn'
+import { EASE } from '@/config/motion'
 
 interface AnimatedTextProps {
   children:   string
@@ -39,7 +40,7 @@ export default function AnimatedText({
             transition={{
               duration: 0.8,
               delay: delay + i * 0.08,
-              ease: [0.16, 1, 0.3, 1],
+              ease: EASE,
             }}
           >
             {item}

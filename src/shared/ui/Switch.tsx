@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { cn } from '@/utils/cn'
+import { EASE } from '@/config/motion'
 
 interface SwitchProps {
   checked:      boolean
@@ -20,7 +21,7 @@ export default function Switch({ checked, onChange, disabled, label, id }: Switc
       disabled={disabled}
       onClick={() => onChange(!checked)}
       className={cn(
-        'relative shrink-0 w-12 h-7 rounded-full transition-colors duration-500 ease-out',
+        'relative shrink-0 w-12 h-7 rounded-full transition-colors duration-slow ease-out',
         'focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2',
         disabled ? 'bg-support/15 cursor-not-allowed' : checked ? 'bg-primary cursor-pointer' : 'bg-support/20 cursor-pointer',
       )}
@@ -31,7 +32,7 @@ export default function Switch({ checked, onChange, disabled, label, id }: Switc
           disabled ? 'bg-white/80' : 'bg-white',
         )}
         animate={{ x: checked ? 20 : 0 }}
-        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.35, ease: EASE }}
       />
     </button>
   )

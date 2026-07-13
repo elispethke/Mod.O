@@ -13,10 +13,10 @@ export default function CookiePreferencesModal() {
   return (
     <Dialog.Root open={isPreferencesOpen} onOpenChange={(open) => !open && closePreferences()}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-[60] bg-support/40 backdrop-blur-sm data-[state=open]:animate-fade-in" />
+        <Dialog.Overlay className="fixed inset-0 z-dialog-overlay bg-support/40 backdrop-blur-sm data-[state=open]:animate-fade-in" />
 
         <Dialog.Content
-          className="fixed z-[61] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-lg max-h-[85vh] overflow-y-auto rounded-md border border-white/30 bg-white/80 backdrop-blur-2xl shadow-2xl data-[state=open]:animate-scale-in focus:outline-none"
+          className="fixed z-dialog-content left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-lg max-h-[85vh] overflow-y-auto rounded-md border border-white/30 bg-white/80 backdrop-blur-2xl shadow-2xl data-[state=open]:animate-scale-in focus:outline-none"
           onOpenAutoFocus={(e) => e.preventDefault()}
         >
           <div className="relative p-7 sm:p-9 flex flex-col gap-7">
@@ -35,7 +35,7 @@ export default function CookiePreferencesModal() {
                 <button
                   type="button"
                   aria-label={copy.close}
-                  className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full border border-support/15 text-support/60 transition-all duration-300 hover:border-primary hover:text-primary hover:rotate-90"
+                  className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full border border-support/15 text-support/60 transition-all duration-base hover:border-primary hover:text-primary hover:rotate-90"
                 >
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
                     <path d="M1 1l11 11M12 1L1 12" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
@@ -55,7 +55,7 @@ export default function CookiePreferencesModal() {
                       <span className="font-body font-semibold text-support text-sm">
                         {categoryCopy.title}
                       </span>
-                      <span className="font-body text-support/55 text-xs leading-relaxed max-w-[32ch]">
+                      <span className="font-body text-support/60 text-xs leading-relaxed max-w-[32ch]">
                         {categoryCopy.description}
                       </span>
                     </div>
@@ -75,14 +75,14 @@ export default function CookiePreferencesModal() {
               <button
                 type="button"
                 onClick={savePreferences}
-                className="flex-1 py-4 px-6 font-body text-xs font-semibold tracking-[0.18em] uppercase border border-support/20 text-support rounded-[3px] transition-colors duration-400 hover:border-primary hover:text-primary"
+                className="flex-1 py-4 px-6 font-body text-xs font-semibold tracking-[0.18em] uppercase border border-support/20 text-support rounded-[3px] transition-colors duration-medium hover:border-primary hover:text-primary"
               >
                 {copy.save}
               </button>
               <button
                 type="button"
                 onClick={acceptAll}
-                className="flex-1 py-4 px-6 font-body text-xs font-semibold tracking-[0.18em] uppercase bg-support text-white rounded-[3px] transition-colors duration-400 hover:bg-primary"
+                className="flex-1 py-4 px-6 font-body text-xs font-semibold tracking-[0.18em] uppercase bg-support text-white rounded-[3px] transition-colors duration-medium hover:bg-primary"
               >
                 {copy.acceptAll}
               </button>

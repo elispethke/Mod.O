@@ -2,8 +2,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '@/constants/routes'
-
-const EASE = [0.16, 1, 0.3, 1] as const
+import { EASE } from '@/config/motion'
 
 export interface LegalSection {
   slug:        string
@@ -42,7 +41,7 @@ export default function LegalLayout({ eyebrow, title, updatedAt, intro, sections
         >
           <Link
             to={ROUTES.home}
-            className="inline-flex items-center gap-3 font-body text-xs font-semibold tracking-[0.14em] uppercase text-support/70 transition-colors duration-300 hover:text-primary mb-16"
+            className="inline-flex items-center gap-3 font-body text-xs font-semibold tracking-[0.14em] uppercase text-support/70 transition-colors duration-base hover:text-primary mb-16"
           >
             <svg width="14" height="10" viewBox="0 0 14 10" fill="none" className="rotate-180" aria-hidden="true">
               <path d="M1 5h12M8 1l5 4-5 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -63,13 +62,12 @@ export default function LegalLayout({ eyebrow, title, updatedAt, intro, sections
           </motion.div>
 
           <h1
-            className="font-display font-bold text-primary leading-[0.95] mb-8"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', letterSpacing: '-0.03em' }}
+            className="font-display font-bold text-primary leading-[0.95] mb-8 text-[clamp(2.5rem,6vw,5.5rem)] tracking-[-0.03em]"
           >
             {title}
           </h1>
 
-          <p className="font-body text-support/40 text-xs tracking-[0.08em] uppercase mb-6">
+          <p className="font-body text-support/60 text-xs tracking-[0.08em] uppercase mb-6">
             Última atualização em {updatedAt}
           </p>
 
@@ -82,7 +80,7 @@ export default function LegalLayout({ eyebrow, title, updatedAt, intro, sections
 
           {/* TOC */}
           <nav aria-label="Sumário" className="lg:col-span-3 lg:sticky lg:top-32 lg:self-start">
-            <span className="tracking-editorial text-support/35 font-body block mb-5">Sumário</span>
+            <span className="tracking-editorial text-support/60 font-body block mb-5">Sumário</span>
             <ol className="flex flex-col gap-1">
               {sections.map((s, i) => (
                 <li key={s.slug}>
@@ -91,10 +89,10 @@ export default function LegalLayout({ eyebrow, title, updatedAt, intro, sections
                     onClick={() => handleTocClick(s.slug)}
                     className="group flex items-baseline gap-3 py-2 text-left"
                   >
-                    <span className="font-body text-[0.7rem] text-primary/60 tabular-nums">
+                    <span className="font-body text-[0.7rem] text-primary/85 tabular-nums">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span className="font-body text-sm text-support/70 group-hover:text-primary transition-colors duration-300">
+                    <span className="font-body text-sm text-support/70 group-hover:text-primary transition-colors duration-base">
                       {s.title}
                     </span>
                   </button>

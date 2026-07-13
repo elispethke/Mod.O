@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { t } from '@/lib/i18n'
 import { useCookieConsent } from './CookieConsentContext'
-
-const EASE = [0.16, 1, 0.3, 1] as const
+import { EASE } from '@/config/motion'
 
 export default function CookieBanner() {
   const { isBannerVisible, acceptAll, rejectOptional, openPreferences } = useCookieConsent()
@@ -14,7 +13,7 @@ export default function CookieBanner() {
         <motion.div
           role="region"
           aria-label={copy.title}
-          className="fixed z-[45] left-4 right-4 bottom-4 sm:left-6 sm:right-6 sm:bottom-6 lg:left-8 lg:right-auto lg:bottom-8 lg:max-w-md"
+          className="fixed z-banner left-4 right-4 bottom-4 sm:left-6 sm:right-6 sm:bottom-6 lg:left-8 lg:right-auto lg:bottom-8 lg:max-w-md"
           initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           exit={{ opacity: 0, y: 16, filter: 'blur(8px)' }}
@@ -39,7 +38,7 @@ export default function CookieBanner() {
                 <button
                   type="button"
                   onClick={acceptAll}
-                  className="w-full py-3.5 px-6 font-body text-xs font-semibold tracking-[0.18em] uppercase bg-support text-white rounded-[3px] transition-colors duration-400 hover:bg-primary"
+                  className="w-full py-3.5 px-6 font-body text-xs font-semibold tracking-[0.18em] uppercase bg-support text-white rounded-[3px] transition-colors duration-medium hover:bg-primary"
                 >
                   {copy.acceptAll}
                 </button>
@@ -48,7 +47,7 @@ export default function CookieBanner() {
                   <button
                     type="button"
                     onClick={rejectOptional}
-                    className="font-body text-xs font-semibold tracking-[0.1em] uppercase text-support transition-colors duration-300 hover:text-primary"
+                    className="font-body text-xs font-semibold tracking-[0.1em] uppercase text-support transition-colors duration-base hover:text-primary"
                   >
                     {copy.rejectOptional}
                   </button>
@@ -58,7 +57,7 @@ export default function CookieBanner() {
                   <button
                     type="button"
                     onClick={openPreferences}
-                    className="relative font-body text-xs font-semibold tracking-[0.1em] uppercase text-support transition-colors duration-300 hover:text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
+                    className="relative font-body text-xs font-semibold tracking-[0.1em] uppercase text-support transition-colors duration-base hover:text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-base hover:after:origin-left hover:after:scale-x-100"
                   >
                     {copy.customize}
                   </button>

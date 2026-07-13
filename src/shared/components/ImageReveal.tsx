@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { cn } from '@/utils/cn'
+import { EASE } from '@/config/motion'
 
 interface ImageRevealProps {
   src:       string
@@ -26,7 +27,7 @@ export default function ImageReveal({ src, alt, className, delay = 0, direction 
       className={cn('overflow-hidden', className)}
       initial={{ clipPath: clipStart }}
       animate={isInView ? { clipPath: 'inset(0 0% 0 0)' } : { clipPath: clipStart }}
-      transition={{ duration: 1.1, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 1.1, delay, ease: EASE }}
     >
       <motion.img
         src={src}
@@ -36,7 +37,7 @@ export default function ImageReveal({ src, alt, className, delay = 0, direction 
         className="w-full h-full object-cover"
         initial={{ scale: 1.08 }}
         animate={isInView ? { scale: 1 } : { scale: 1.08 }}
-        transition={{ duration: 1.4, delay, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.4, delay, ease: EASE }}
       />
     </motion.div>
   )

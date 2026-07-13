@@ -16,14 +16,14 @@ export default function FooterLink({ href, onClick, target, rel, children, class
   const classes = cn(
     'group relative inline-flex items-center gap-2 w-fit',
     'font-body text-[0.95rem] font-medium text-white',
-    'transition-[color,transform] duration-300 ease-out',
+    'transition-[color,transform] duration-base ease-out',
     'hover:text-base hover:translate-x-1',
     className,
   )
 
   const underline = (
     <span
-      className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-white transition-transform duration-400 ease-out group-hover:scale-x-100"
+      className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-white transition-transform duration-medium ease-out group-hover:scale-x-100"
       aria-hidden="true"
     />
   )

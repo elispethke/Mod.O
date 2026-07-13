@@ -13,10 +13,7 @@ export const t = {
     cta:      'Conheça o estúdio',
   },
   about: {
-    eyebrow:  'Visão',
-    headline: 'Fashion Studio\n& Visão Global',
-    body:     'A MOD.O nasce como um fashion studio que conecta criatividade, estratégia e visão global para desenvolver coleções com propósito.\n\nMais do que criar produtos, a MOD.O estrutura ideias, traduz tendências e constrói coleções que fazem sentido estético, comercial e estratégico.',
-    quote:    'Cada projeto é conduzido de forma personalizada, respeitando a identidade de sua marca e transformando conceitos em resultados reais.',
+    eyebrow: 'Visão',
   },
   services: {
     eyebrow:  'O que fazemos',
@@ -55,20 +52,14 @@ export const t = {
     fields: {
       name:    'Nome',
       email:   'E-mail',
-      brand:   'Nome da marca',
+      phone:   'Telefone',
+      company: 'Empresa',
+      service: 'Serviço desejado',
       message: 'Mensagem',
     },
-    placeholders: {
-      name:    'Seu nome',
-      email:   'seu@email.com',
-      brand:   'Nome da sua marca',
-      message: 'Conte-nos sobre seu projeto...',
-    },
     submit:  'Enviar mensagem',
-    success: 'Mensagem enviada! Retornamos em breve.',
   },
   footer: {
-    tagline:    'Moda como conceito.',
     rights:     'Todos os direitos reservados.',
     social:     'Redes sociais',
     navigation: 'Navegação',
@@ -112,15 +103,6 @@ export const t = {
         },
       },
     },
-  },
-  values: {
-    items: [
-      { title: 'Criatividade com propósito', description: 'Inovação estética e estratégica em cada projeto.' },
-      { title: 'Excelência e resultado',      description: 'Resultados confiáveis, prazos respeitados, expectativas superadas.' },
-      { title: 'Personalização',              description: 'Cada projeto é único, alinhado à identidade de cada marca.' },
-      { title: 'Presença global',             description: 'Conexão direta com tendências e mercados internacionais.' },
-      { title: 'Inovação constante',          description: 'Tecnologia e pesquisa para antecipar o futuro da moda.' },
-    ],
   },
   whatsapp: {
     label:   'Fale conosco pelo WhatsApp',

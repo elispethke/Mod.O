@@ -1,13 +1,16 @@
-import { useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Header from '@/features/layout/header/Header'
 import Footer from '@/features/layout/footer/Footer'
 import WhatsAppButton from '@/shared/components/WhatsAppButton'
 import ScrollProgress from '@/shared/components/ScrollProgress'
 import HomePage from '@/features/home/HomePage'
-import { PrivacyPolicyPage, TermsOfUsePage } from '@/features/legal'
 import { CookieConsentProvider, CookieBanner, CookiePreferencesModal } from '@/features/cookie-consent'
 import { ROUTES } from '@/constants/routes'
+
+
+const PrivacyPolicyPage = lazy(() => import('@/features/legal/PrivacyPolicyPage'))
+const TermsOfUsePage    = lazy(() => import('@/features/legal/TermsOfUsePage'))
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -27,9 +30,15 @@ export default function App() {
       <Header />
       <main>
         <Routes>
-          <Route path={ROUTES.home}    element={<HomePage />} />
-          <Route path={ROUTES.privacy} element={<PrivacyPolicyPage />} />
-          <Route path={ROUTES.terms}   element={<TermsOfUsePage />} />
+          <Route path={ROUTES.home} element={<HomePage />} />
+          <Route
+            path={ROUTES.privacy}
+            element={<Suspense fallback={null}><PrivacyPolicyPage /></Suspense>}
+          />
+          <Route
+            path={ROUTES.terms}
+            element={<Suspense fallback={null}><TermsOfUsePage /></Suspense>}
+          />
         </Routes>
       </main>
       <Footer />

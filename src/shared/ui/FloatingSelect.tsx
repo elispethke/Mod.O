@@ -16,7 +16,7 @@ const FloatingSelect = forwardRef<HTMLSelectElement, FloatingSelectProps>(
   ({ label, options, error, className, ...props }, ref) => {
     return (
       <div className={cn('group relative flex flex-col justify-center gap-2.5 px-7 py-6 sm:px-9 sm:py-7', className)}>
-        <label className="tracking-editorial text-support/40 transition-colors duration-500 group-focus-within:text-primary select-none">
+        <label className="tracking-editorial text-support/60 transition-colors duration-slow group-focus-within:text-primary select-none">
           {label}
         </label>
 
@@ -27,7 +27,7 @@ const FloatingSelect = forwardRef<HTMLSelectElement, FloatingSelectProps>(
             className={cn(
               'peer w-full bg-transparent appearance-none border-none outline-none ring-0 p-0 pr-8 cursor-pointer',
               'font-body text-[0.95rem] text-support',
-              '[&>option]:bg-[#efece9] [&>option]:text-support',
+              '[&>option]:bg-base [&>option]:text-support',
             )}
           >
             <option value="" disabled hidden />
@@ -39,16 +39,16 @@ const FloatingSelect = forwardRef<HTMLSelectElement, FloatingSelectProps>(
           </select>
 
           {/* Seta customizada */}
-          <div className="absolute right-0 pointer-events-none transition-transform duration-300 peer-focus:rotate-180" aria-hidden="true">
+          <div className="absolute right-0 pointer-events-none transition-transform duration-base peer-focus:rotate-180" aria-hidden="true">
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-support/40 group-focus-within:text-primary transition-colors duration-300" />
+              <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-support/60 group-focus-within:text-primary transition-colors duration-base" />
             </svg>
           </div>
         </div>
 
         {/* Glow de foco — nasce do vidro */}
         <span
-          className="pointer-events-none absolute inset-0 opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 ease-out bg-gradient-to-b from-primary/[0.06] via-transparent to-transparent"
+          className="pointer-events-none absolute inset-0 opacity-0 group-focus-within:opacity-100 transition-opacity duration-slow ease-out bg-gradient-to-b from-primary/[0.06] via-transparent to-transparent"
           aria-hidden="true"
         />
 

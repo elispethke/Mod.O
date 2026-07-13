@@ -4,6 +4,7 @@ import { t } from '@/lib/i18n'
 import AnimatedText from '@/shared/components/AnimatedText'
 import GalleryGroup from './GalleryGroup'
 import { GALLERIES } from './galleries'
+import { EASE } from '@/config/motion'
 
 export default function Portfolio() {
   const ref = useRef<HTMLElement>(null)
@@ -24,7 +25,7 @@ export default function Portfolio() {
               className="flex items-center gap-4"
               initial={{ opacity: 0, x: -16 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, ease: EASE }}
             >
               <span className="rule-brand" aria-hidden="true" />
               <span className="tracking-editorial text-primary font-body">{t.portfolio.eyebrow}</span>
@@ -34,8 +35,7 @@ export default function Portfolio() {
               id="portfolio-heading"
               as="h2"
               delay={0.1}
-              className="font-display font-bold text-primary"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 5.5rem)', lineHeight: 1.0, letterSpacing: '-0.025em' } as React.CSSProperties}
+              className="font-display font-bold text-primary text-[clamp(2.5rem,5vw,5.5rem)] leading-none tracking-[-0.025em]"
             >
               {t.portfolio.headline}
             </AnimatedText>

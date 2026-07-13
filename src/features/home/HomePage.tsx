@@ -1,8 +1,10 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import Hero from '@/features/home/hero/Hero'
+import About from '@/features/home/about/About'
 
-const Hero      = lazy(() => import('@/features/home/hero/Hero'))
-const About     = lazy(() => import('@/features/home/about/About'))
+// Abaixo da dobra — só o Hero e o About (imediatamente visíveis) carregam de forma eager,
+// para não atrasar o LCP com um fetch de chunk extra.
 const Services  = lazy(() => import('@/features/home/services/Services'))
 const Portfolio = lazy(() => import('@/features/home/portfolio/Portfolio'))
 const Contact   = lazy(() => import('@/features/home/contact/Contact'))
@@ -19,12 +21,14 @@ export default function HomePage() {
   }, [hash])
 
   return (
-    <Suspense fallback={null}>
+    <>
       <Hero />
       <About />
-      <Services />
-      <Portfolio />
-      <Contact />
-    </Suspense>
+      <Suspense fallback={null}>
+        <Services />
+        <Portfolio />
+        <Contact />
+      </Suspense>
+    </>
   )
 }

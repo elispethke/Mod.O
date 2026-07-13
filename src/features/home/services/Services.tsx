@@ -2,8 +2,7 @@ import { useRef } from 'react'
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { t } from '@/lib/i18n'
 import AnimatedText from '@/shared/components/AnimatedText'
-
-const EASE = [0.16, 1, 0.3, 1] as const
+import { EASE } from '@/config/motion'
 
 const GRAIN = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")"
 
@@ -36,7 +35,7 @@ function ServiceCard({ item, index }: { item: typeof t.services.items[number]; i
   return (
     <motion.div
       ref={ref}
-      style={{ perspective: 1400 }}
+      className="[perspective:1400px]"
       initial={{ opacity: 0, y: 56, scale: 0.94 }}
       animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.9, delay: index * 0.12, ease: EASE }}
@@ -53,7 +52,7 @@ function ServiceCard({ item, index }: { item: typeof t.services.items[number]; i
           bg-gradient-to-b from-white via-base to-base
           border border-support/[0.08]
           shadow-lg
-          transition-[box-shadow,border-color] duration-500 ease-elegant
+          transition-[box-shadow,border-color] duration-slow ease-elegant
           hover:border-primary/25 hover:shadow-red-lg
           cursor-default
         "
@@ -67,30 +66,30 @@ function ServiceCard({ item, index }: { item: typeof t.services.items[number]; i
 
         {/* Halo de luz — surge na hover */}
         <div
-          className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-primary/0 blur-[90px] transition-colors duration-700 ease-elegant group-hover:bg-primary/25 pointer-events-none"
+          className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-primary/0 blur-[90px] transition-colors duration-slower ease-elegant group-hover:bg-primary/25 pointer-events-none"
           aria-hidden="true"
         />
 
         {/* Spotlight — segue o cursor */}
         <div
-          className="absolute inset-0 opacity-0 transition-opacity duration-500 ease-elegant group-hover:opacity-100 pointer-events-none"
+          className="absolute inset-0 opacity-0 transition-opacity duration-slow ease-elegant group-hover:opacity-100 pointer-events-none"
           style={{ background: 'radial-gradient(380px circle at var(--x, 50%) var(--y, 50%), rgba(186,17,16,0.10), transparent 70%)' }}
           aria-hidden="true"
         />
 
         {/* Filete superior — brilho fino */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-support/[0.14] to-transparent" aria-hidden="true" />
-        <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-primary/0 via-primary/0 to-transparent transition-all duration-500 group-hover:from-primary/40" aria-hidden="true" />
+        <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-primary/0 via-primary/0 to-transparent transition-all duration-slow group-hover:from-primary/40" aria-hidden="true" />
 
         {/* Conteúdo — camada elevada */}
-        <div className="relative flex flex-col gap-6 h-full" style={{ transform: 'translateZ(40px)' }}>
-          <div className="w-8 h-px bg-primary/30 transition-all duration-500 group-hover:w-16 group-hover:bg-primary" aria-hidden="true" />
+        <div className="relative flex flex-col gap-6 h-full [transform:translateZ(40px)]">
+          <div className="w-8 h-px bg-primary/30 transition-all duration-slow group-hover:w-16 group-hover:bg-primary" aria-hidden="true" />
 
-          <h3 className="font-display font-bold text-support leading-snug" style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.375rem)' }}>
+          <h3 className="font-display font-bold text-support leading-snug text-[clamp(1.1rem,1.5vw,1.375rem)]">
             {item.title}
           </h3>
 
-          <p className="font-body text-support/55 leading-relaxed text-sm">
+          <p className="font-body text-support/60 leading-relaxed text-sm">
             {item.description}
           </p>
         </div>
@@ -136,15 +135,14 @@ export default function Services() {
               id="services-heading"
               as="h2"
               delay={0.1}
-              className="font-display font-bold text-primary"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 5.5rem)', lineHeight: 1.0, letterSpacing: '-0.025em' } as React.CSSProperties}
+              className="font-display font-bold text-primary text-[clamp(2.5rem,5vw,5.5rem)] leading-none tracking-[-0.025em]"
             >
               {t.services.headline}
             </AnimatedText>
           </div>
 
           <motion.p
-            className="lg:max-w-xs font-body text-support/55 leading-relaxed text-sm"
+            className="lg:max-w-xs font-body text-support/60 leading-relaxed text-sm"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}

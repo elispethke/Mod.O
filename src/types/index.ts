@@ -8,10 +8,3 @@ export interface ServiceItem {
   title:       string
   description: string
 }
-
-export interface ContactFormData {
-  name:    string
-  email:   string
-  brand:   string
-  message: string
-}

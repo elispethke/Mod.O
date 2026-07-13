@@ -11,7 +11,7 @@ const FloatingInput = forwardRef<HTMLInputElement, FloatingInputProps>(
   ({ label, error, optional, className, ...props }, ref) => {
     return (
       <div className={cn('group relative flex flex-col justify-center gap-2.5 px-7 py-6 sm:px-9 sm:py-7', className)}>
-        <label className="tracking-editorial text-support/40 transition-colors duration-500 group-focus-within:text-primary select-none">
+        <label className="tracking-editorial text-support/60 transition-colors duration-slow group-focus-within:text-primary select-none">
           {label}
           {optional && (
             <span className="ml-1.5 opacity-60 normal-case tracking-normal text-[0.6rem]">opcional</span>
@@ -32,7 +32,7 @@ const FloatingInput = forwardRef<HTMLInputElement, FloatingInputProps>(
 
         {/* Glow de foco — nasce do vidro */}
         <span
-          className="pointer-events-none absolute inset-0 opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 ease-out bg-gradient-to-b from-primary/[0.06] via-transparent to-transparent"
+          className="pointer-events-none absolute inset-0 opacity-0 group-focus-within:opacity-100 transition-opacity duration-slow ease-out bg-gradient-to-b from-primary/[0.06] via-transparent to-transparent"
           aria-hidden="true"
         />
 

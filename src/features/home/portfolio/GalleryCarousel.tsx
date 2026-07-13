@@ -2,8 +2,8 @@ import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from 're
 import { motion, AnimatePresence, type PanInfo } from 'framer-motion'
 import { cn } from '@/utils/cn'
 import type { GalleryCardData } from './galleries'
+import { EASE } from '@/config/motion'
 
-const EASE = [0.16, 1, 0.3, 1] as const
 const VISIBLE_RANGE = 2
 
 interface GalleryCarouselProps {
@@ -61,8 +61,7 @@ export default function GalleryCarousel({ title, cards }: GalleryCarouselProps) 
 
       <div
         ref={containerRef}
-        className="relative h-[320px] sm:h-[400px] lg:h-[480px] flex items-center justify-center overflow-hidden sm:overflow-visible"
-        style={{ perspective: 1600 }}
+        className="relative h-[320px] sm:h-[400px] lg:h-[480px] flex items-center justify-center overflow-hidden sm:overflow-visible [perspective:1600px]"
       >
         <motion.div
           className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing touch-pan-y"
@@ -103,7 +102,7 @@ export default function GalleryCarousel({ title, cards }: GalleryCarouselProps) 
               >
                 <div
                   className={cn(
-                    'relative w-full h-full overflow-hidden border transition-colors duration-500',
+                    'relative w-full h-full overflow-hidden border transition-colors duration-slow',
                     isActive ? 'border-primary/50 shadow-red-lg' : 'border-white/25 shadow-2xl',
                   )}
                 >
@@ -117,7 +116,7 @@ export default function GalleryCarousel({ title, cards }: GalleryCarouselProps) 
                   />
                   <div
                     className={cn(
-                      'absolute inset-0 transition-opacity duration-500',
+                      'absolute inset-0 transition-opacity duration-slow',
                       isActive ? 'bg-gradient-to-t from-support/35 via-transparent to-transparent opacity-100' : 'bg-support/25 opacity-100',
                     )}
                     aria-hidden="true"
@@ -141,7 +140,7 @@ export default function GalleryCarousel({ title, cards }: GalleryCarouselProps) 
           type="button"
           aria-label="Imagem anterior"
           onClick={() => goTo(activeIndex - 1)}
-          className="hidden sm:flex absolute left-0 lg:-left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-14 lg:h-14 items-center justify-center rounded-full border border-support/20 bg-base/70 backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
+          className="hidden sm:flex absolute left-0 lg:-left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-14 lg:h-14 items-center justify-center rounded-full border border-support/20 bg-base/70 backdrop-blur-sm transition-all duration-base hover:border-primary hover:bg-primary hover:text-white"
         >
           <svg width="16" height="12" viewBox="0 0 14 10" fill="none" className="rotate-180" aria-hidden="true">
             <path d="M1 5h12M8 1l5 4-5 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
@@ -152,7 +151,7 @@ export default function GalleryCarousel({ title, cards }: GalleryCarouselProps) 
           type="button"
           aria-label="Próxima imagem"
           onClick={() => goTo(activeIndex + 1)}
-          className="hidden sm:flex absolute right-0 lg:-right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-14 lg:h-14 items-center justify-center rounded-full border border-support/20 bg-base/70 backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
+          className="hidden sm:flex absolute right-0 lg:-right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-14 lg:h-14 items-center justify-center rounded-full border border-support/20 bg-base/70 backdrop-blur-sm transition-all duration-base hover:border-primary hover:bg-primary hover:text-white"
         >
           <svg width="16" height="12" viewBox="0 0 14 10" fill="none" aria-hidden="true">
             <path d="M1 5h12M8 1l5 4-5 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
@@ -166,7 +165,7 @@ export default function GalleryCarousel({ title, cards }: GalleryCarouselProps) 
           type="button"
           aria-label="Imagem anterior"
           onClick={() => goTo(activeIndex - 1)}
-          className="sm:hidden w-9 h-9 flex items-center justify-center rounded-full border border-support/20 transition-colors duration-300 hover:border-primary hover:text-primary"
+          className="sm:hidden w-9 h-9 flex items-center justify-center rounded-full border border-support/20 transition-colors duration-base hover:border-primary hover:text-primary"
         >
           <svg width="14" height="10" viewBox="0 0 14 10" fill="none" className="rotate-180" aria-hidden="true">
             <path d="M1 5h12M8 1l5 4-5 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
@@ -174,7 +173,7 @@ export default function GalleryCarousel({ title, cards }: GalleryCarouselProps) 
         </button>
 
         <div className="flex items-baseline gap-4 min-w-[9rem] sm:min-w-[14rem] justify-center">
-          <span className="font-body text-xs text-support/40 tabular-nums shrink-0">
+          <span className="font-body text-xs text-support/60 tabular-nums shrink-0">
             {String(activeIndex + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}
           </span>
           <AnimatePresence mode="wait">
@@ -195,7 +194,7 @@ export default function GalleryCarousel({ title, cards }: GalleryCarouselProps) 
           type="button"
           aria-label="Próxima imagem"
           onClick={() => goTo(activeIndex + 1)}
-          className="sm:hidden w-9 h-9 flex items-center justify-center rounded-full border border-support/20 transition-colors duration-300 hover:border-primary hover:text-primary"
+          className="sm:hidden w-9 h-9 flex items-center justify-center rounded-full border border-support/20 transition-colors duration-base hover:border-primary hover:text-primary"
         >
           <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
             <path d="M1 5h12M8 1l5 4-5 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />

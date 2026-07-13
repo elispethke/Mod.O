@@ -2,14 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Parabolica — Tipografia Principal (Brand Guideline p.13) ─── */
-@font-face {
-  font-family: 'Parabolica';
-  src: url('/fonts/Parabolica-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+/* ─── Parabolica — Tipografia Principal (Brand Guideline p.13) ───
+   Apenas os cortes efetivamente usados no site (Regular/Medium/Bold)
+   são carregados. font-weight 600 (font-semibold) casa com o corte
+   Bold via a faixa de peso abaixo — não existe um corte SemiBold
+   dedicado nos arquivos entregues pela fundição. */
 @font-face {
   font-family: 'Parabolica';
   src: url('/fonts/Parabolica-Regular.woff2') format('woff2');
@@ -26,27 +23,16 @@
 }
 @font-face {
   font-family: 'Parabolica';
-  src: url('/fonts/Parabolica-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Parabolica';
   src: url('/fonts/Parabolica-Bold.woff2') format('woff2');
-  font-weight: 700;
+  font-weight: 600 700;
   font-style: normal;
   font-display: swap;
 }
 
-/* ─── Franie — Tipografia de Apoio (Brand Guideline p.14) ─── */
-@font-face {
-  font-family: 'Franie';
-  src: url('/fonts/Franie-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+/* ─── Franie — Tipografia de Apoio (Brand Guideline p.14) ───
+   Mesma lógica: font-weight 500 (font-medium) casa com o corte
+   SemiBold, já que não existe um corte Medium dedicado entre
+   Regular e SemiBold nos arquivos entregues. */
 @font-face {
   font-family: 'Franie';
   src: url('/fonts/Franie-Regular.woff2') format('woff2');
@@ -56,16 +42,16 @@
 }
 @font-face {
   font-family: 'Franie';
-  src: url('/fonts/Franie-Medium.woff2') format('woff2');
-  font-weight: 500;
+  src: url('/fonts/Franie-SemiBold.woff2') format('woff2');
+  font-weight: 500 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Franie';
-  src: url('/fonts/Franie-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
+  src: url('/fonts/Franie-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
   font-display: swap;
 }
 
