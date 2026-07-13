@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { t } from '@/lib/i18n'
-import { useCookieConsent } from './CookieConsentContext'
+import { useCookieConsent } from './useCookieConsent'
 import { EASE } from '@/config/motion'
 
 export default function CookieBanner() {

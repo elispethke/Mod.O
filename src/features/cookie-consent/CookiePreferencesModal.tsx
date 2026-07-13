@@ -1,7 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { t } from '@/lib/i18n'
 import Switch from '@/shared/ui/Switch'
-import { useCookieConsent } from './CookieConsentContext'
+import { useCookieConsent } from './useCookieConsent'
 import type { CookieCategory } from './types'
 
 const CATEGORY_ORDER: CookieCategory[] = ['necessary', 'analytics', 'marketing', 'preferences']

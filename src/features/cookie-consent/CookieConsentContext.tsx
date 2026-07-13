@@ -1,6 +1,7 @@
-import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
+import { useCallback, useMemo, useState, type ReactNode } from 'react'
 import type { CookieCategory, CookieConsent } from './types'
 import { readStoredConsent, writeStoredConsent } from './storage'
+import { CookieConsentContext, type CookieConsentContextValue } from './context'
 
 const DEFAULT_CONSENT: CookieConsent = {
   necessary:   true,
@@ -8,21 +9,6 @@ const DEFAULT_CONSENT: CookieConsent = {
   marketing:   false,
   preferences: false,
 }
-
-interface CookieConsentContextValue {
-  consent:           CookieConsent
-  hasDecided:        boolean
-  isBannerVisible:   boolean
-  isPreferencesOpen: boolean
-  openPreferences:   () => void
-  closePreferences:  () => void
-  acceptAll:         () => void
-  rejectOptional:    () => void
-  updateCategory:    (category: CookieCategory, value: boolean) => void
-  savePreferences:   () => void
-}
-
-const CookieConsentContext = createContext<CookieConsentContextValue | null>(null)
 
 export function CookieConsentProvider({ children }: { children: ReactNode }) {
   // Inicializadores lazy: o localStorage é lido de forma síncrona na primeira renderização,
@@ -38,44 +24,41 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
   const [hasDecided, setHasDecided]             = useState(() => readStoredConsent() !== null)
   const [isPreferencesOpen, setPreferencesOpen] = useState(false)
 
-  const persist = (next: CookieConsent) => {
+  const persist = useCallback((next: CookieConsent) => {
     writeStoredConsent(next)
     setConsent(next)
     setHasDecided(true)
     setPreferencesOpen(false)
-  }
+  }, [])
 
-  const acceptAll      = () => persist({ necessary: true, analytics: true,  marketing: true,  preferences: true })
-  const rejectOptional = () => persist({ necessary: true, analytics: false, marketing: false, preferences: false })
-  const savePreferences = () => persist(consent)
+  const acceptAll       = useCallback(() => persist({ necessary: true, analytics: true,  marketing: true,  preferences: true }),  [persist])
+  const rejectOptional  = useCallback(() => persist({ necessary: true, analytics: false, marketing: false, preferences: false }), [persist])
+  const savePreferences = useCallback(() => persist(consent), [persist, consent])
 
-  const updateCategory = (category: CookieCategory, value: boolean) => {
+  const updateCategory = useCallback((category: CookieCategory, value: boolean) => {
     if (category === 'necessary') return
     setConsent((prev) => ({ ...prev, [category]: value }))
-  }
+  }, [])
+
+  const openPreferences  = useCallback(() => setPreferencesOpen(true), [])
+  const closePreferences = useCallback(() => setPreferencesOpen(false), [])
 
   const value = useMemo<CookieConsentContextValue>(() => ({
     consent,
     hasDecided,
     isBannerVisible: !hasDecided && !isPreferencesOpen,
     isPreferencesOpen,
-    openPreferences:  () => setPreferencesOpen(true),
-    closePreferences: () => setPreferencesOpen(false),
+    openPreferences,
+    closePreferences,
     acceptAll,
     rejectOptional,
     updateCategory,
     savePreferences,
-  }), [consent, hasDecided, isPreferencesOpen])
+  }), [consent, hasDecided, isPreferencesOpen, openPreferences, closePreferences, acceptAll, rejectOptional, updateCategory, savePreferences])
 
   return (
     <CookieConsentContext.Provider value={value}>
       {children}
     </CookieConsentContext.Provider>
   )
-}
-
-export function useCookieConsent() {
-  const ctx = useContext(CookieConsentContext)
-  if (!ctx) throw new Error('useCookieConsent deve ser usado dentro de CookieConsentProvider')
-  return ctx
 }

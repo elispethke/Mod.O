@@ -1,12 +1,24 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { cn } from '@/utils/cn'
 import Logo from '@/shared/components/Logo'
 import Nav from './Nav'
 import { useScrollHeader } from './useScrollHeader'
+import { useSectionNav } from '@/shared/hooks/useSectionNav'
 import { ROUTES } from '@/constants/routes'
 
 export default function Header() {
   const { isScrolled, isHidden } = useScrollHeader(60)
+  const location = useLocation()
+  const sectionNav = useSectionNav()
+
+  // Clicar na logo enquanto já se está na home deve voltar ao topo (Hero), não é um "no-op" de
+  // navegação para a mesma rota — o Link sozinho não faz nada nesse caso.
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (location.pathname === ROUTES.home) {
+      e.preventDefault()
+      sectionNav('#hero')
+    }
+  }
 
   return (
     <header
@@ -22,6 +34,7 @@ export default function Header() {
       <div className="container-brand flex items-center justify-between h-16 md:h-20">
         <Link
           to={ROUTES.home}
+          onClick={handleLogoClick}
           aria-label="mod.o Fashion Studio — Página inicial"
           className="flex-shrink-0 transition-opacity duration-base hover:opacity-70"
         >

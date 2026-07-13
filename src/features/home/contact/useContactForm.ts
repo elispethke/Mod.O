@@ -14,7 +14,8 @@ if (import.meta.env.DEV && !FORMSPREE_ENDPOINT) {
 // mas rejeita texto que não seja um telefone (ex.: "aaaaaaaaaa" passava com apenas min(10)).
 const PHONE_REGEX = /^\+?[\d\s()-]{8,20}$/
 
-const schema = z.object({
+// Exportado para ser testado diretamente (ver useContactForm.test.ts) sem precisar montar o formulário inteiro.
+export const contactFormSchema = z.object({
   name:    z.string().min(2,  'Nome obrigatório'),
   email:   z.string().email(  'E-mail inválido'),
   phone:   z.string().regex(PHONE_REGEX, 'Telefone inválido'),
@@ -23,7 +24,7 @@ const schema = z.object({
   message: z.string().min(20, 'Escreva pelo menos 20 caracteres'),
 })
 
-export type ContactFormData = z.infer<typeof schema>
+export type ContactFormData = z.infer<typeof contactFormSchema>
 
 export const SERVICE_OPTIONS = [
   { value: 'criacao-produto',   label: 'Criação de Produto & Direção Técnica' },
@@ -38,7 +39,7 @@ export function useContactForm() {
   const [serverError, setServerError] = useState<string | null>(null)
 
   const form = useForm<ContactFormData>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: '', email: '', phone: '', company: '', service: '', message: '',
     },

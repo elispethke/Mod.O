@@ -213,10 +213,10 @@ export default function Contact() {
 
                       <div className="flex flex-col gap-3">
                         <p className="font-display font-bold text-primary text-[clamp(1.75rem,4vw,3rem)] leading-[1.1]">
-                          Mensagem recebida.
+                          Mensagem enviada com sucesso!
                         </p>
                         <p className="font-body text-support/60 text-sm leading-relaxed max-w-xs">
-                          Entraremos em contato em breve. Obrigada pelo interesse na mod.o.
+                          Em breve responderemos sua mensagem. Obrigada!
                         </p>
                       </div>
                     </motion.div>

@@ -27,7 +27,6 @@ export interface GalleryCardData {
 
 export interface GalleryData {
   id:       string
-  index:    string
   title:    string
   subtitle: string
   cards:    GalleryCardData[]
@@ -36,7 +35,6 @@ export interface GalleryData {
 export const GALLERIES: GalleryData[] = [
   {
     id:       'alta-costura',
-    index:    '01',
     title:    'Alta Costura',
     subtitle: 'Peças únicas, construídas à mão para os momentos mais importantes — onde cada detalhe é uma assinatura de excelência.',
     cards: [
@@ -50,7 +48,6 @@ export const GALLERIES: GalleryData[] = [
   },
   {
     id:       'vestidos-de-festa',
-    index:    '02',
     title:    'Vestidos de Festa',
     subtitle: 'Silhuetas que celebram o corpo e o momento — elegância fluida para noites que merecem ser lembradas.',
     cards: [
@@ -64,7 +61,6 @@ export const GALLERIES: GalleryData[] = [
   },
   {
     id:       'moda-casual',
-    index:    '03',
     title:    'Moda Casual',
     subtitle: 'O refinamento do dia a dia — alfaiataria descontraída, cortes precisos e uma atitude naturalmente sofisticada.',
     cards: [

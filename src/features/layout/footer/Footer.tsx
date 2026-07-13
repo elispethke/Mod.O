@@ -153,16 +153,13 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        <motion.div {...fadeUp(0.3)} className="h-px bg-white/25 mb-8" />
-
-        {/* Barra inferior */}
-        <motion.div
-          {...fadeUp(0.35)}
+        <div className="h-px bg-white/25 mb-8" />
+        <div
           className="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6"
         >
           <p className="font-body text-white text-xs">
             © {year} {SITE.fullName}. {t.footer.rights}
-            <span className="mx-2 text-white/30" aria-hidden="true">·</span>
+            <span className="mx-2 text-white/40" aria-hidden="true">·</span>
             Desenvolvido por{' '}
             <a
               href="https://www.elispethke.com"
@@ -195,7 +192,7 @@ export default function Footer() {
               {t.footer.legal.cookiePreferences}
             </button>
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </footer>
