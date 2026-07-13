@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Parabolica — Tipografia Principal (Brand Guideline p.13) ─── */
+@font-face {
+  font-family: 'Parabolica';
+  src: url('/fonts/Parabolica-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Parabolica';
+  src: url('/fonts/Parabolica-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Parabolica';
+  src: url('/fonts/Parabolica-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Parabolica';
+  src: url('/fonts/Parabolica-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Parabolica';
+  src: url('/fonts/Parabolica-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Franie — Tipografia de Apoio (Brand Guideline p.14) ─── */
+@font-face {
+  font-family: 'Franie';
+  src: url('/fonts/Franie-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Franie';
+  src: url('/fonts/Franie-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Franie';
+  src: url('/fonts/Franie-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Franie';
+  src: url('/fonts/Franie-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Base Reset ─── */
+@layer base {
+  :root {
+    --color-primary:  #BA1110;
+    --color-base:     #F2F0EF;
+    --color-accent:   #F6D2DC;
+    --color-support:  #000000;
+    --color-white:    #FFFFFF;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: 'Franie', 'Inter', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-base);
+    color: var(--color-support);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Parabolica', 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  img, video {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  /* Scrollbar refinada */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-base);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 3px;
+  }
+}
+
+/* ─── Utilitários da Marca ─── */
+@layer utilities {
+  .font-display {
+    font-family: 'Parabolica', 'DM Sans', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Franie', 'Inter', 'Helvetica Neue', sans-serif;
+  }
+
+  /* Tracking editorial — letras espaçadas para labels e eyebrows */
+  .tracking-editorial {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.6875rem;
+    font-weight: 500;
+  }
+
+  /* Ghost watermark — logo como textura de background */
+  .text-ghost {
+    opacity: 0.06;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* Linha fina da marca — divisor editorial */
+  .rule-brand {
+    width: 40px;
+    height: 1px;
+    background-color: var(--color-primary);
+    display: inline-block;
+  }
+
+  /* Container padrão */
+  .container-brand {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: clamp(1.5rem, 5vw, 6rem);
+  }
+
+  /* Clip reveal — animação de máscara */
+  .clip-hidden {
+    clip-path: inset(0 100% 0 0);
+  }
+  .clip-visible {
+    clip-path: inset(0 0% 0 0);
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "modo-fashion-studio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "mod.o Fashion Studio — Website Institucional",
+  "type": "module",
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "autoprefixer": "^10.5.2",
+    "postcss": "^8.5.18",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.4"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
+    "@radix-ui/react-dialog": "^1.1.19",
+    "@radix-ui/react-label": "^2.1.11",
+    "@radix-ui/react-visually-hidden": "^1.2.7",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.42.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-hook-form": "^7.81.0",
+    "react-router-dom": "^7.18.1",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.4.3"
+  }
+}
