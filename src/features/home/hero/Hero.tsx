@@ -93,50 +93,14 @@ export default function Hero() {
           </div>
 
           {/* Coluna visual */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-3 h-full">
-
-            <div className="col-span-1 row-span-2">
-              <ImageReveal
-                src={editorial01}
-                alt="Desfile editorial — mod.o Fashion Studio"
-                className="w-full h-full min-h-[60vh] lg:min-h-[70vh]"
-                delay={0.4}
-                direction="up"
-              />
-            </div>
-
-            <motion.div
-              className="col-span-1 bg-primary flex items-center justify-center overflow-hidden relative min-h-[28vh] lg:min-h-[32vh]"
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.5, ease: EASE }}
-            >
-              <div
-                aria-hidden="true"
-                className="flex flex-col items-center text-white font-display font-bold select-none text-[clamp(2rem,5vw,4rem)] leading-[0.9]"
-              >
-                <span>mo</span>
-                <span>d.o</span>
-              </div>
-              <div className="absolute inset-0 flex items-end justify-end p-4 pointer-events-none" aria-hidden="true">
-                <span className="font-display font-bold text-white/[0.07] text-[8rem] leading-none">o</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="col-span-1 bg-base border border-support/[0.07] flex items-end justify-start p-5 min-h-[28vh] lg:min-h-[32vh]"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7, ease: EASE }}
-            >
-              <div className="flex flex-col gap-2">
-                <span className="rule-brand" aria-hidden="true" />
-                <p className="font-body text-support/60 text-xs leading-relaxed max-w-[14ch]">
-                  Duas amigas.<br />Dois países.<br />Um estúdio e uma <em>visão</em>.
-                </p>
-              </div>
-            </motion.div>
-
+          <div className="lg:col-span-6 h-full">
+            <ImageReveal
+              src={editorial01}
+              alt="Desfile editorial — mod.o Fashion Studio"
+              className="w-full h-full min-h-[70vh] lg:min-h-[88vh]"
+              delay={0.4}
+              direction="up"
+            />
           </div>
 
         </div>

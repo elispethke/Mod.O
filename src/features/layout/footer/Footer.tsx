@@ -162,12 +162,12 @@ export default function Footer() {
             <span className="mx-2 text-white/40" aria-hidden="true">·</span>
             Desenvolvido por{' '}
             <a
-              href="https://www.elispethke.com"
+              href="https://www.eproxstudio.com"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-white transition-colors duration-base hover:text-base underline decoration-white/40 underline-offset-4 hover:decoration-base"
             >
-              Buildle
+              Eprox Studio
             </a>
           </p>
 

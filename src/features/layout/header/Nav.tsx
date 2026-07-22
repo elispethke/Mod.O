@@ -2,12 +2,11 @@ import { useState } from 'react'
 import { cn } from '@/utils/cn'
 import { t } from '@/lib/i18n'
 import { useSectionNav } from '@/shared/hooks/useSectionNav'
-
-const NAV_KEYS = ['about', 'services', 'portfolio', 'contact'] as const
+const NAV_KEYS = ['about', 'services', 'processo', 'contact'] as const
 const NAV_HREFS: Record<typeof NAV_KEYS[number], string> = {
   about:     '#sobre',
   services:  '#servicos',
-  portfolio: '#portfolio',
+  processo: '#Processo',
   contact:   '#contato',
 }
 

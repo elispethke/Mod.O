@@ -5,9 +5,10 @@ import About from '@/features/home/about/About'
 
 // Abaixo da dobra — só o Hero e o About (imediatamente visíveis) carregam de forma eager,
 // para não atrasar o LCP com um fetch de chunk extra.
-const Services  = lazy(() => import('@/features/home/services/Services'))
-const Portfolio = lazy(() => import('@/features/home/portfolio/Portfolio'))
-const Contact   = lazy(() => import('@/features/home/contact/Contact'))
+const Services   = lazy(() => import('@/features/home/services/Services'))
+const Instagram  = lazy(() => import('@/features/home/instagram/Process'))
+const BrandCards = lazy(() => import('@/features/home/brand-cards/BrandCards'))
+const Contact    = lazy(() => import('@/features/home/contact/Contact'))
 
 export default function HomePage() {
   const { hash } = useLocation()
@@ -26,7 +27,8 @@ export default function HomePage() {
       <About />
       <Suspense fallback={null}>
         <Services />
-        <Portfolio />
+        <Instagram />
+        <BrandCards />
         <Contact />
       </Suspense>
     </>

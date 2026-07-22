@@ -106,13 +106,13 @@ export default function Services() {
     <section
       id="servicos"
       ref={ref}
-      className="relative bg-base overflow-hidden py-28 lg:py-40"
+      className="relative bg-primary overflow-hidden py-28 lg:py-40"
       aria-labelledby="services-heading"
     >
       {/* Ambiente de fundo — halos e profundidade */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-24 -right-24 w-[420px] h-[420px] rounded-full bg-primary/[0.06] blur-[130px]" />
-        <div className="absolute bottom-0 -left-24 w-[360px] h-[360px] rounded-full bg-accent/30 blur-[120px]" />
+        <div className="absolute top-24 -right-24 w-[420px] h-[420px] rounded-full bg-white/[0.06] blur-[130px]" />
+        <div className="absolute bottom-0 -left-24 w-[360px] h-[360px] rounded-full bg-accent/20 blur-[120px]" />
       </div>
 
       <div className="relative container-brand">
@@ -126,23 +126,22 @@ export default function Services() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, ease: EASE }}
             >
-              <span className="rule-brand" aria-hidden="true" />
-              <span className="tracking-editorial text-primary font-body">{t.services.eyebrow}</span>
+              <span className="tracking-editorial text-white font-body">{t.services.eyebrow}</span>
             </motion.div>
 
-            {/* Título em vermelho — identidade da marca */}
+            {/* Título em branco — sobre fundo vermelho da marca */}
             <AnimatedText
               id="services-heading"
               as="h2"
               delay={0.1}
-              className="font-display font-bold text-primary text-[clamp(2.5rem,5vw,5.5rem)] leading-none tracking-[-0.025em]"
+              className="font-display font-bold text-white text-[clamp(2.5rem,5vw,5.5rem)] leading-none tracking-[-0.025em]"
             >
               {t.services.headline}
             </AnimatedText>
           </div>
 
           <motion.p
-            className="lg:max-w-xs font-body text-support/60 leading-relaxed text-sm"
+            className="lg:max-w-xs font-body text-white/70 leading-relaxed text-sm"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}

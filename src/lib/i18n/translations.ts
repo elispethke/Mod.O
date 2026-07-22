@@ -2,7 +2,7 @@ export const t = {
   nav: {
     about:     'Sobre',
     services:  'Serviços',
-    portfolio: 'Galeria',
+    processo:  'Processo',
     contact:   'Contato',
     cta:       'Trabalhe conosco',
   },
@@ -16,8 +16,8 @@ export const t = {
     eyebrow: 'Visão',
   },
   services: {
-    eyebrow:  'O que fazemos',
-    headline: 'Serviços',
+    eyebrow:  'Serviço',
+    headline: 'O que Fazemos',
     items: [
       {
         index:       '01',
@@ -40,10 +40,6 @@ export const t = {
         description: 'Definimos a linguagem estética do projeto — do conceito ao produto final, tudo com intenção e direção.',
       },
     ],
-  },
-  portfolio: {
-    eyebrow:  'Portfólio',
-    headline: 'Projetos',
   },
   contact: {
     eyebrow:  'Contato',
