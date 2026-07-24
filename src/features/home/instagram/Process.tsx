@@ -6,6 +6,29 @@ import AnimatedText from '@/shared/components/AnimatedText'
 import { EASE } from '@/config/motion'
 import { INSTAGRAM_POSTS } from './posts'
 
+function ProcessStep({ step, index }: { step: typeof t.process.steps[number]; index: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -60px 0px' })
+
+  return (
+    <motion.div
+      ref={ref}
+      className="flex flex-col gap-3"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.08, ease: EASE }}
+    >
+      <span className="tracking-editorial text-primary font-body">{step.index}</span>
+      <h3 className="font-display font-bold text-support leading-snug text-[clamp(1.05rem,1.4vw,1.25rem)]">
+        {step.title}
+      </h3>
+      <p className="font-body text-support/60 text-sm leading-relaxed">
+        {step.description}
+      </p>
+    </motion.div>
+  )
+}
+
 function ProcessTitle({ post, index }: { post: typeof INSTAGRAM_POSTS[number]; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '0px 0px -60px 0px' })
@@ -84,6 +107,21 @@ export default function Instagram() {
           >
             {"Pesquisa. Referências.\nProcesso criativo."}
           </AnimatedText>
+
+          <motion.p
+            className="font-body text-support/60 max-w-2xl leading-relaxed text-[clamp(0.9375rem,1.1vw,1.0625rem)]"
+            initial={{ opacity: 0, y: 12 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
+          >
+            {t.process.intro}
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-10 mb-20 lg:mb-28">
+          {t.process.steps.map((step, i) => (
+            <ProcessStep key={step.index} step={step} index={i} />
+          ))}
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-3">

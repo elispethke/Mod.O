@@ -7,6 +7,7 @@ import About from '@/features/home/about/About'
 // para não atrasar o LCP com um fetch de chunk extra.
 const Services   = lazy(() => import('@/features/home/services/Services'))
 const Instagram  = lazy(() => import('@/features/home/instagram/Process'))
+const Pains      = lazy(() => import('@/features/home/pains/Pains'))
 const BrandCards = lazy(() => import('@/features/home/brand-cards/BrandCards'))
 const Contact    = lazy(() => import('@/features/home/contact/Contact'))
 
@@ -28,6 +29,7 @@ export default function HomePage() {
       <Suspense fallback={null}>
         <Services />
         <Instagram />
+        <Pains />
         <BrandCards />
         <Contact />
       </Suspense>

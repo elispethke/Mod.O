@@ -27,11 +27,11 @@ export const contactFormSchema = z.object({
 export type ContactFormData = z.infer<typeof contactFormSchema>
 
 export const SERVICE_OPTIONS = [
-  { value: 'criacao-produto',   label: 'Criação de Produto & Direção Técnica' },
-  { value: 'consultoria',       label: 'Consultoria & Curadoria de Coleção'   },
-  { value: 'pesquisa',          label: 'Pesquisa Internacional & Tendências'   },
-  { value: 'direcao-estilo',    label: 'Direção de Estilo & Identidade'        },
-  { value: 'outro',             label: 'Outro'                                 },
+  { value: 'pesquisa-curadoria',      label: 'Pesquisa & Curadoria'               },
+  { value: 'direcao-criativa',        label: 'Direção Criativa Estratégica'       },
+  { value: 'desenvolvimento-colecao', label: 'Desenvolvimento de Coleção'         },
+  { value: 'visualizacao-ia',         label: 'Visualização com IA'                },
+  { value: 'outro',                   label: 'Outro'                              },
 ]
 
 export function useContactForm() {

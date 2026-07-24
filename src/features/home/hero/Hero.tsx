@@ -47,7 +47,6 @@ export default function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
             >
-              <span className="rule-brand" aria-hidden="true" />
               <span className="tracking-editorial text-primary font-body">{t.hero.eyebrow}</span>
             </motion.div>
 
@@ -61,10 +60,19 @@ export default function Hero() {
             </AnimatedText>
 
             <motion.p
+              className="font-body font-semibold text-support/80 max-w-md leading-relaxed text-[clamp(1.0625rem,1.2vw,1.25rem)]"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.55, ease: EASE }}
+            >
+              {t.hero.leadIn}
+            </motion.p>
+
+            <motion.p
               className="font-body text-support/60 max-w-md leading-relaxed text-[clamp(1rem,1.1vw,1.125rem)]"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
+              transition={{ duration: 0.7, delay: 0.65, ease: EASE }}
             >
               {t.hero.body}
             </motion.p>

@@ -169,12 +169,27 @@
     display: inline-block;
   }
 
-  /* Container padrão */
+  /* Container padrão — cresce em passos suaves acima de 1440px para
+     aproveitar melhor telas grandes, sem alterar a proporção/identidade
+     visual em resoluções menores. */
   .container-brand {
     width: 100%;
     max-width: 1440px;
     margin-inline: auto;
     padding-inline: clamp(1.5rem, 5vw, 6rem);
+  }
+
+  @media (min-width: 1536px) {
+    .container-brand { max-width: 1600px; }
+  }
+  @media (min-width: 1728px) {
+    .container-brand { max-width: 1680px; }
+  }
+  @media (min-width: 1920px) {
+    .container-brand { max-width: 1760px; }
+  }
+  @media (min-width: 2560px) {
+    .container-brand { max-width: 1920px; }
   }
 
   /* Clip reveal — animação de máscara */

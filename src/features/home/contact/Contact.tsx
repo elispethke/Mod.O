@@ -80,7 +80,6 @@ export default function Contact() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, ease: EASE }}
             >
-              <span className="rule-brand" aria-hidden="true" />
               <span className="tracking-editorial text-primary font-body">{t.contact.eyebrow}</span>
             </motion.div>
 

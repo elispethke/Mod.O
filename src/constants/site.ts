@@ -14,29 +14,29 @@ export const SITE = {
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Sobre',      href: '#sobre' },
   { label: 'Serviços',   href: '#servicos' },
-  { label: 'Instagram',  href: '#instagram' },
+  { label: 'Processo',   href: '#instagram' },
   { label: 'Contato',    href: '#contato' },
 ]
 
 export const SERVICES: ServiceItem[] = [
   {
     index:       '01',
-    title:       'Criação de Produto & Direção Técnica',
-    description: 'Desenvolvemos produtos com identidade, traduzindo a essência da sua marca em coleções estratégicas e comerciais.',
+    title:       'Pesquisa & Curadoria',
+    description: 'Pesquisas autorais e reports que traduzem comportamento, movimentos globais e referências de moda em direcionamentos criativos aplicáveis à coleção e ao universo da marca. Transformamos repertório em clareza para apoiar decisões mais consistentes.',
   },
   {
     index:       '02',
-    title:       'Consultoria & Curadoria de Coleção',
-    description: 'Estruturamos ideias e transformamos conceitos em coleções coesas, com estética e resultado.',
+    title:       'Direção Criativa Estratégica',
+    description: 'Construção de conceitos, narrativas e direcionamentos estéticos que dão unidade à coleção. Cada decisão fortalece a identidade da marca e estabelece uma relação coerente entre produto, linguagem visual e posicionamento.',
   },
   {
     index:       '03',
-    title:       'Pesquisa Internacional & Tendências',
-    description: 'Conectamos sua marca às tendências e mercados internacionais, com repertório global e personalização local.',
+    title:       'Desenvolvimento de Coleção',
+    description: 'Desenvolvemos produtos com direção estética clara, coerência de mix e alinhamento entre criatividade, posicionamento e viabilidade comercial. Porque uma boa coleção não depende apenas de peças fortes, mas da relação entre elas.',
   },
   {
     index:       '04',
-    title:       'Direção de Estilo & Identidade da Coleção',
-    description: 'Definimos a linguagem estética do projeto — do conceito ao produto final, tudo com intenção e direção.',
+    title:       'Visualização com IA',
+    description: 'Aplicamos inteligência artificial ao processo criativo para explorar possibilidades, validar conceitos e antecipar decisões. Utilizamos a tecnologia como ferramenta estratégica para acelerar o desenvolvimento, ampliar a visualização de cenários e apoiar escolhas mais precisas.',
   },
 ]

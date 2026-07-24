@@ -51,17 +51,15 @@ export default function About() {
               <span className="tracking-editorial text-primary font-body">{t.about.eyebrow}</span>
             </motion.div>
 
-            {/* Headline — parte 1: "Ser o fashion studio de referência para marcas que" */}
+            {/* Headline — parte 1 */}
             <motion.h2
               id="about-heading"
-              className="font-display font-medium text-support leading-[1.08] text-[clamp(2rem,4.2vw,4.5rem)] tracking-[-0.02em]"
+              className="font-display font-medium text-support leading-[1.08] text-[clamp(1.75rem,3.6vw,3.75rem)] tracking-[-0.02em]"
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             >
-              Ser o fashion studio de{' '}
-              <strong className="font-bold text-primary">referência</strong>{' '}
-              para marcas que
+              O Studio <strong className="font-bold text-primary">mod.o</strong> nasceu da parceria entre duas amigas apaixonadas por moda e por processo. Com Bruna baseada na Alemanha e Cris na Itália, atuamos entre
             </motion.h2>
 
             {/* Foto das fundadoras — embutida no fluxo do texto, exatamente como na página 8 */}
@@ -82,13 +80,27 @@ export default function About() {
 
             {/* Headline — parte 2: continua abaixo da foto */}
             <motion.p
-              className="font-display font-medium text-support leading-[1.08] text-[clamp(2rem,4.2vw,4.5rem)] tracking-[-0.02em]"
+              className="font-display font-medium text-support leading-[1.08] text-[clamp(1.75rem,3.6vw,3.75rem)] tracking-[-0.02em]"
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
             >
-              buscam inovação, qualidade e repertório global.
+              Europa e Brasil apoiando marcas de moda no desenvolvimento criativo e estratégico de coleções.
             </motion.p>
+
+            {/* Texto complementar oficial */}
+            <motion.div
+              className="flex flex-col gap-4 mt-8 max-w-xl"
+              initial={{ opacity: 0, y: 16 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.65, ease: EASE }}
+            >
+              {t.about.body.split('\n\n').map((paragraph, i) => (
+                <p key={i} className="font-body text-support/60 leading-relaxed text-[clamp(0.9375rem,1.1vw,1.0625rem)]">
+                  {paragraph}
+                </p>
+              ))}
+            </motion.div>
 
           </div>
 

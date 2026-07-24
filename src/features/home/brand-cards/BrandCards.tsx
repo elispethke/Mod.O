@@ -4,7 +4,7 @@ import { EASE } from '@/config/motion'
 export default function BrandCards() {
   return (
     <section className="relative bg-base overflow-hidden mb-24 lg:mb-32">
-      <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
+      <div className="mx-auto max-w-[1600px] min-[1728px]:max-w-[1680px] min-[1920px]:max-w-[1760px] min-[2560px]:max-w-[1920px] px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
 
         <motion.div

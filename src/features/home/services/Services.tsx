@@ -141,12 +141,12 @@ export default function Services() {
           </div>
 
           <motion.p
-            className="lg:max-w-xs font-body text-white/70 leading-relaxed text-sm"
+            className="lg:max-w-sm font-body text-white/70 leading-relaxed text-sm"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            Criatividade. Estratégia. Propósito. Inovação. Processo.
+            {t.services.intro}
           </motion.p>
         </div>
 
