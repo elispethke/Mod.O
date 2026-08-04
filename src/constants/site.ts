@@ -8,13 +8,13 @@ export const SITE = {
   whatsapp:    '393520233222',
   email:       'contato.studiomod.o@gmail.com',
   instagram:   'https://www.instagram.com/mod.ofashionstudio/',
-  linkedin:    'https://www.linkedin.com/in/brunadallegrave/',
+  linkedin:    'https://www.linkedin.com/company/modo-fashionstudio/',
 } as const
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Sobre',      href: '#sobre' },
   { label: 'Serviços',   href: '#servicos' },
-  { label: 'Processo',   href: '#instagram' },
+  { label: 'Processo',   href: '#processo' },
   { label: 'Contato',    href: '#contato' },
 ]
 

@@ -33,7 +33,7 @@ describe('useScrollHeader', () => {
     expect(result.current.scrollY).toBe(120)
   })
 
-  it('esconde o header ao rolar para baixo além de threshold + 100', () => {
+  it('permanece visível ao rolar para baixo além de threshold + 100', () => {
     const { result } = renderHook(() => useScrollHeader(80))
 
     setScrollY(100)
@@ -41,15 +41,15 @@ describe('useScrollHeader', () => {
     setScrollY(300)
     fireScroll()
 
-    expect(result.current.isHidden).toBe(true)
+    expect(result.current.isHidden).toBe(false)
   })
 
-  it('reexibe o header ao rolar para cima', () => {
+  it('permanece visível ao rolar para cima', () => {
     const { result } = renderHook(() => useScrollHeader(80))
 
     setScrollY(300)
     fireScroll()
-    expect(result.current.isHidden).toBe(true)
+    expect(result.current.isHidden).toBe(false)
 
     setScrollY(250)
     fireScroll()

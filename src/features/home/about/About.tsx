@@ -18,10 +18,6 @@ const visionPillars = [
     title:       'Referência global',
     description: 'com proximidade e personalização locais',
   },
-  {
-    title:       null,
-    description: 'Reconhecidas pela capacidade de antecipar e transformar o mercado de moda',
-  },
 ]
 
 export default function About() {
@@ -41,16 +37,6 @@ export default function About() {
           {/* Coluna esquerda — layout editorial da página 8 do Brand Guideline */}
           <div className="lg:col-span-7 flex flex-col">
 
-            {/* Label "VISÃO" */}
-            <motion.div
-              className="flex items-center gap-4 mb-10"
-              initial={{ opacity: 0, x: -16 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, ease: EASE }}
-            >
-              <span className="tracking-editorial text-primary font-body">{t.about.eyebrow}</span>
-            </motion.div>
-
             {/* Headline — parte 1 */}
             <motion.h2
               id="about-heading"
@@ -59,7 +45,7 @@ export default function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             >
-              O Studio <strong className="font-bold text-primary">mod.o</strong> nasceu da parceria entre duas amigas apaixonadas por moda e por processo. Com Bruna baseada na Alemanha e Cris na Itália, atuamos entre
+              O Studio <strong className="font-bold text-primary">mod.o</strong>
             </motion.h2>
 
             {/* Foto das fundadoras — embutida no fluxo do texto, exatamente como na página 8 */}
@@ -85,7 +71,7 @@ export default function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
             >
-              Europa e Brasil apoiando marcas de moda no desenvolvimento criativo e estratégico de coleções.
+              nasceu da parceria entre duas amigas apaixonadas por moda e por processo. Com Bruna baseada na Alemanha e Cris na Itália, atuamos entre Europa e Brasil apoiando marcas de moda no desenvolvimento criativo e estratégico de coleções.
             </motion.p>
 
             {/* Texto complementar oficial */}

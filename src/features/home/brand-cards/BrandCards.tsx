@@ -8,14 +8,14 @@ export default function BrandCards() {
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
 
         <motion.div
-          className="relative bg-primary flex items-center overflow-hidden px-[6vw] sm:px-[5vw] lg:px-[3.5vw] min-h-[62vh] lg:min-h-[92vh]"
+          className="relative bg-primary flex items-center overflow-hidden px-[6vw] sm:px-[5vw] lg:px-[3.5vw] min-h-[62vh] lg:min-h-[92vh] [container-type:inline-size]"
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '0px 0px -80px 0px' }}
           transition={{ duration: 0.9, ease: EASE }}
           aria-hidden="true"
         >
-          <span className="font-display font-bold text-white leading-none whitespace-nowrap select-none text-[clamp(3rem,18.5vw,42rem)] tracking-[-0.02em]">
+          <span className="font-display font-bold text-white leading-none whitespace-nowrap select-none text-[clamp(3rem,27cqw,42rem)] tracking-[-0.02em]">
             mod.o
           </span>
           <div className="absolute bottom-[6%] right-[5%] pointer-events-none" aria-hidden="true">
@@ -32,7 +32,7 @@ export default function BrandCards() {
         >
           <div className="flex flex-col gap-6 max-w-sm">
             <p className="font-body text-support/60 leading-[1.15] text-[clamp(1.5rem,2.6vw,2.75rem)]">
-              Duas amigas.<br />Dois países.<br />Um estúdio e uma <em>visão</em>.
+              Estúdio criativo estratégico para marcas de moda.
             </p>
           </div>
         </motion.div>

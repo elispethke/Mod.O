@@ -18,11 +18,9 @@ export function useScrollHeader(threshold = 80): ScrollHeaderState {
   useEffect(() => {
     const update = () => {
       const current    = window.scrollY
-      const prev       = lastScrollY.current
       const isScrolled = current > threshold
-      const isHidden   = current > prev && current > threshold + 100
 
-      setState({ isScrolled, isHidden, scrollY: current })
+      setState({ isScrolled, isHidden: false, scrollY: current })
       lastScrollY.current = current
     }
 

@@ -68,14 +68,10 @@ export default function Footer() {
           <button
             type="button"
             onClick={() => sectionNav('#contato')}
-            className="group flex items-start gap-5 text-left"
+            aria-label="Ir para o formulário de contato"
+            className="group flex items-center gap-5 text-left"
           >
-            <h2
-              className="font-display font-bold text-white leading-[0.98] transition-colors duration-medium group-hover:text-base text-[clamp(2.25rem,5vw,4.5rem)] tracking-[-0.02em]"
-            >
-              Vamos criar algo excepcional juntos.
-            </h2>
-            <span className="mt-3 lg:mt-6 inline-flex items-center justify-center w-11 h-11 lg:w-14 lg:h-14 rounded-full border border-white shrink-0 transition-all duration-medium group-hover:bg-white group-hover:border-white">
+            <span className="inline-flex items-center justify-center w-11 h-11 lg:w-14 lg:h-14 rounded-full border border-white shrink-0 transition-all duration-medium group-hover:bg-white group-hover:border-white">
               <svg width="18" height="18" viewBox="0 0 14 14" fill="none" className="text-white transition-all duration-medium -rotate-45 group-hover:rotate-0 group-hover:text-primary" aria-hidden="true">
                 <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
