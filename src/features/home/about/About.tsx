@@ -58,7 +58,7 @@ export default function About() {
               <ImageReveal
                 src={founders}
                 alt="As fundadoras da mod.o Fashion Studio"
-                className="w-full aspect-[16/9] lg:aspect-[3/2]"
+                className="w-full aspect-[16/9] lg:aspect-[3/2] rounded-2xl shadow-xl"
                 delay={0.3}
                 direction="up"
               />

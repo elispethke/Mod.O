@@ -2,6 +2,8 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { t } from '@/lib/i18n'
 import AnimatedText from '@/shared/components/AnimatedText'
+import ImageReveal from '@/shared/components/ImageReveal'
+import processo01 from '@/assets/process/processo-01.webp'
 import { EASE } from '@/config/motion'
 
 function ProcessStep({ step, index }: { step: typeof t.process.steps[number]; index: number }) {
@@ -70,6 +72,21 @@ export default function Process() {
             {t.process.intro}
           </motion.p>
         </div>
+
+        <motion.div
+          className="mx-auto w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl 2xl:max-w-4xl mb-16 lg:mb-24"
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
+        >
+          <ImageReveal
+            src={processo01}
+            alt="Processo criativo — mod.o Fashion Studio"
+            className="w-full aspect-[4/5] rounded-2xl shadow-xl"
+            delay={0.35}
+            direction="up"
+          />
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-10">
           {t.process.steps.map((step, i) => (

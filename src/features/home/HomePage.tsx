@@ -11,6 +11,7 @@ const Pains         = lazy(() => import('@/features/home/pains/Pains'))
 const BrandCards    = lazy(() => import('@/features/home/brand-cards/BrandCards'))
 const InstagramGrid = lazy(() => import('@/features/home/instagram/InstagramGrid'))
 const Contact       = lazy(() => import('@/features/home/contact/Contact'))
+const Campanha      = lazy(() => import('@/features/home/campanha/Campanha'))
 
 export default function HomePage() {
   const { hash } = useLocation()
@@ -34,6 +35,7 @@ export default function HomePage() {
         <BrandCards />
         <InstagramGrid />
         <Contact />
+        <Campanha />
       </Suspense>
     </>
   )

@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { t } from '@/lib/i18n'
 import AnimatedText from '@/shared/components/AnimatedText'
 import ImageReveal from '@/shared/components/ImageReveal'
-import editorial01 from '@/assets/editorial/editorial-01.webp'
+import hero01 from '@/assets/hero/hero-01.webp'
 import { EASE } from '@/config/motion'
 
 export default function Hero() {
@@ -103,9 +103,9 @@ export default function Hero() {
           {/* Coluna visual */}
           <div className="lg:col-span-6 h-full">
             <ImageReveal
-              src={editorial01}
+              src={hero01}
               alt="Desfile editorial — mod.o Fashion Studio"
-              className="w-full h-full min-h-[70vh] lg:min-h-[88vh]"
+              className="w-full h-full min-h-[70vh] lg:min-h-[88vh] rounded-2xl shadow-xl"
               delay={0.4}
               direction="up"
             />
