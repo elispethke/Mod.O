@@ -62,14 +62,8 @@ export default function InstagramGrid() {
     >
       <div className="container-brand">
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-3">
-          {INSTAGRAM_POSTS.map((post, i) => (
-            <InstagramPost key={post.src} post={post} index={i} />
-          ))}
-        </div>
-
         <motion.div
-          className="flex justify-center mt-16 lg:mt-20"
+          className="flex justify-center mb-16 lg:mb-20"
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
@@ -88,6 +82,12 @@ export default function InstagramGrid() {
             Ver mais no Instagram
           </a>
         </motion.div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-3">
+          {INSTAGRAM_POSTS.map((post, i) => (
+            <InstagramPost key={post.src} post={post} index={i} />
+          ))}
+        </div>
 
       </div>
     </section>

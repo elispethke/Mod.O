@@ -18,9 +18,6 @@ export default function BrandCards() {
           <span className="font-display font-bold text-white leading-none whitespace-nowrap select-none text-[clamp(3rem,27cqw,42rem)] tracking-[-0.02em]">
             mod.o
           </span>
-          <div className="absolute bottom-[6%] right-[5%] pointer-events-none" aria-hidden="true">
-            <span className="font-display font-bold text-white/[0.08] text-[13vw] lg:text-[8vw] leading-none">o</span>
-          </div>
         </motion.div>
 
         <motion.div

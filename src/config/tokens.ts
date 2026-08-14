@@ -13,13 +13,12 @@ export const tokens = {
   },
 
   fonts: {
-    // Brand Guideline — Tipografia (páginas 13-14)
-    // Parabolica/Franie temporariamente fora da pilha: os arquivos atuais são
-    // versões de teste da fundição (That That Creative) sem glifos acentuados
-    // em português. Reintroduzir 'Parabolica'/'Franie' assim que a licença
-    // completa for comprada e os arquivos substituídos em public/fonts.
-    display: ['DM Sans', 'sans-serif'] as const,
-    body:    ['Inter', 'Helvetica Neue', 'sans-serif'] as const,
+    // Parabolica/Franie (fundição That That Creative) eram versões de teste
+    // sem glifos acentuados em português — trocadas por Plus Jakarta Sans
+    // (Google Fonts, gratuita, com acentuação completa e boa amplitude de
+    // pesos pra manter contraste entre títulos e texto corrido).
+    display: ['Plus Jakarta Sans', 'sans-serif'] as const,
+    body:    ['Plus Jakarta Sans', 'sans-serif'] as const,
   },
 
   fontSize: {

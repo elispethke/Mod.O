@@ -2,58 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Parabolica — Tipografia Principal (Brand Guideline p.13) ───
-   Apenas os cortes efetivamente usados no site (Regular/Medium/Bold)
-   são carregados. font-weight 600 (font-semibold) casa com o corte
-   Bold via a faixa de peso abaixo — não existe um corte SemiBold
-   dedicado nos arquivos entregues pela fundição. */
-@font-face {
-  font-family: 'Parabolica';
-  src: url('/fonts/Parabolica-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Parabolica';
-  src: url('/fonts/Parabolica-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Parabolica';
-  src: url('/fonts/Parabolica-Bold.woff2') format('woff2');
-  font-weight: 600 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ─── Franie — Tipografia de Apoio (Brand Guideline p.14) ───
-   Mesma lógica: font-weight 500 (font-medium) casa com o corte
-   SemiBold, já que não existe um corte Medium dedicado entre
-   Regular e SemiBold nos arquivos entregues. */
-@font-face {
-  font-family: 'Franie';
-  src: url('/fonts/Franie-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Franie';
-  src: url('/fonts/Franie-SemiBold.woff2') format('woff2');
-  font-weight: 500 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Franie';
-  src: url('/fonts/Franie-Italic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
+/* ─── Tipografia — Plus Jakarta Sans (Google Fonts) ───
+   Substitui Parabolica/Franie (fundição That That Creative): eram versões
+   de teste sem glifos acentuados em português (ver src/config/tokens.ts).
+   Carregada via <link> no index.html — sem @font-face aqui. */
 
 /* ─── Base Reset ─── */
 @layer base {
@@ -82,10 +34,7 @@
   }
 
   body {
-    /* Franie temporariamente fora da pilha — arquivo atual é uma versão de
-       teste da fundição sem acentuação em português. Reintroduzir assim
-       que a licença completa chegar (ver .font-body abaixo). */
-    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: var(--color-base);
     color: var(--color-support);
     line-height: 1.6;
@@ -93,8 +42,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    /* Parabolica temporariamente fora da pilha — mesmo motivo do Franie acima. */
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.02em;
@@ -143,11 +91,11 @@
 /* ─── Utilitários da Marca ─── */
 @layer utilities {
   .font-display {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   .font-body {
-    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   /* Tracking editorial — letras espaçadas para labels e eyebrows */
