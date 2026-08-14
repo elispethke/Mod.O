@@ -82,7 +82,10 @@
   }
 
   body {
-    font-family: 'Franie', 'Inter', 'Helvetica Neue', sans-serif;
+    /* Franie temporariamente fora da pilha — arquivo atual é uma versão de
+       teste da fundição sem acentuação em português. Reintroduzir assim
+       que a licença completa chegar (ver .font-body abaixo). */
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
     background-color: var(--color-base);
     color: var(--color-support);
     line-height: 1.6;
@@ -90,7 +93,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Parabolica', 'DM Sans', sans-serif;
+    /* Parabolica temporariamente fora da pilha — mesmo motivo do Franie acima. */
+    font-family: 'DM Sans', sans-serif;
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.02em;
@@ -139,11 +143,11 @@
 /* ─── Utilitários da Marca ─── */
 @layer utilities {
   .font-display {
-    font-family: 'Parabolica', 'DM Sans', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
 
   .font-body {
-    font-family: 'Franie', 'Inter', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
   }
 
   /* Tracking editorial — letras espaçadas para labels e eyebrows */
