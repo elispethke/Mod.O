@@ -51,13 +51,6 @@ export default function Footer() {
       className="relative bg-primary overflow-hidden pt-24 pb-10 lg:pt-32 lg:pb-12"
       aria-label="Rodapé"
     >
-      <span
-        className="absolute -bottom-[10%] -right-[4%] font-display font-bold text-[26vw] leading-none text-white/[0.05] whitespace-nowrap select-none pointer-events-none"
-        aria-hidden="true"
-      >
-        o
-      </span>
-
       <div className="relative z-10 container-brand">
 
         {/* Chamada editorial */}

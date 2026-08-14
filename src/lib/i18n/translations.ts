@@ -18,7 +18,7 @@ export const t = {
     body:    'Temos experiência em pequenas e grandes empresas e entendemos, na prática, os desafios de criar com identidade, cumprir prazos e entregar resultado.\n\nFalamos de moda com proximidade, mas trabalhamos com estratégia. Preferimos organizar ideias, traduzir tendências em decisões reais e caminhar junto com as marcas ao longo do processo.',
   },
   services: {
-    eyebrow:  'Serviço',
+    eyebrow:  'Serviços',
     headline: 'O que Fazemos',
     intro:    'Cada marca tem um momento, um time e um desafio diferente. Por isso, nosso trabalho é sempre personalizado. Entramos como apoio criativo e estratégico para organizar o processo, trazer direção e ajudar a tomar boas decisões.',
     items: [
