@@ -1,0 +1,23 @@
+# mod.o Fashion Studio
+
+> Fashion studio que conecta criatividade, estratégia e visão global para desenvolver coleções de moda com propósito. Atua no Brasil e na Europa, oferecendo apoio criativo e estratégico para marcas de moda em todas as etapas do processo — da pesquisa ao desenvolvimento de coleção.
+
+Fundado por duas profissionais com atuação internacional, o mod.o conecta pesquisa, direção criativa, desenvolvimento de coleção e tecnologia para estruturar processos criativos mais claros, coleções mais coerentes e produtos alinhados ao posicionamento de cada marca.
+
+## Serviços
+
+- Pesquisa & Curadoria — pesquisas autorais e reports que traduzem comportamento, movimentos globais e referências de moda em direcionamentos criativos.
+- Direção Criativa Estratégica — construção de conceitos, narrativas e direcionamentos estéticos que dão unidade à coleção.
+- Desenvolvimento de Coleção — produtos com direção estética clara, coerência de mix e alinhamento entre criatividade, posicionamento e viabilidade comercial.
+- Visualização com IA — uso de inteligência artificial no processo criativo para explorar possibilidades, validar conceitos e antecipar decisões.
+
+## Páginas
+
+- [Site principal](https://www.modofashionstudio.com/): visão geral do estúdio, serviços, processo de trabalho e formulário de contato.
+- [Política de Privacidade](https://www.modofashionstudio.com/politica-de-privacidade)
+- [Termos de Uso](https://www.modofashionstudio.com/termos-de-uso)
+
+## Contato
+
+- E-mail: contato.studiomod.o@gmail.com
+- Atuação: Brasil & Europa

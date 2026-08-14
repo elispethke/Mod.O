@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://modo.studio/sitemap.xml
+Sitemap: https://www.modofashionstudio.com/sitemap.xml
